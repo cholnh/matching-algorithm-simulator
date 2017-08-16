@@ -17,5 +17,10 @@
 	<classpathentry kind="lib" path="C:/Dev/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/com.ibm.icu_56.1.0.v201601250100.jar" sourcepath="C:/Dev/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/com.ibm.icu_56.1.0.v201601250100.jar"/>
 	<classpathentry kind="lib" path="C:/Dev/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.ui.forms_3.7.1.v20161220-1635.jar" sourcepath="C:/Dev/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.ui.forms_3.7.1.v20161220-1635.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/GroboUtils-5-aitests.jar"/>
+	<classpathentry kind="lib" path="lib/GroboUtils-5-core.jar"/>
+	<classpathentry kind="lib" path="lib/GroboUtils-5-eutests.jar"/>
+	<classpathentry kind="lib" path="lib/GroboUtils-5-iutests.jar"/>
+	<classpathentry kind="lib" path="lib/GroboUtils-5-utests.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

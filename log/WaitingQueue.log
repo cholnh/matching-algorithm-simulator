@@ -1,0 +1,16 @@
+[INFO] WaitingQueue 2017-08-16 02:00:18
+	Reg : [0] 
+[INFO] WaitingQueue 2017-08-16 02:00:18
+	Reg : [0] 
+[INFO] WaitingQueue 2017-08-16 02:02:10
+	Reg : [0] clientNm : client1 (Red )	
+[INFO] WaitingQueue 2017-08-16 02:02:10
+	Reg : [0] clientNm : client2 (Orange )	
+[INFO] WaitingQueue 2017-08-16 02:02:29
+	Reg : [0] name : client1 (Red )	
+[INFO] WaitingQueue 2017-08-16 02:02:29
+	Reg : [0] name : client2 (Orange )	
+[INFO] WaitingQueue 2017-08-16 02:06:16
+	Complete : name : client1 (Red ) Peer : [2] name : client3 (Red )	name : client4 (Red )	
+[INFO] WaitingQueue 2017-08-16 02:06:32
+	Complete] name : client1 (Red ) Peer : [2] name : client3 (Red )	name : client4 (Red )	
