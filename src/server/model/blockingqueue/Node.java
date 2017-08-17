@@ -1,57 +1,42 @@
 package server.model.blockingqueue;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.locks.Lock;
-
-import org.apache.log4j.Logger;
-
-import server.control.log.LogMgr;
 
 /**
- * Node
+ * CompactNode
  * 
- * @version 1.0 [2017. 8. 16.]
+ * @version 1.0 [2017. 8. 17.]
  * @author Choi
  */
-public class Node {
+public class Node implements Serializable {
 
-	/** 로그 */
-	static Logger logger = LogMgr.getInstance("Node");
-	private static void log(String text) {
-		System.out.println(text);
-	}
-	
+	private static final long serialVersionUID = 8057910237830080455L;
+
 	/** Field */
-	private Integer Idx;
-	private BlockingQueue<Node> queue;
-	private String clientName;
-	private Node parent;
-	private List<Node> peer;	// synchronizedList
-	private Integer totalPeerCount = 0;
+	protected String clientName;
+	protected volatile List<BlockingQueueNode> peer;	// synchronizedList 
+	protected volatile Integer totalPeerCount = 0;
 	
-	private String[] option;
-	private Integer categoryIndex;
-	private Integer minusError = 0;
-	private Integer plusError = 0;
+	protected String[] option;
+	protected Integer categoryIndex;
+	protected Integer minusError = 0;
+	protected Integer plusError = 0;
 	
-	public void setIdx(Integer Idx) {
-		this.Idx = Idx;
+	public Node(String clientName, Integer totalPeerCount, Integer...args) {
+		this.clientName = clientName;
+		this.totalPeerCount = totalPeerCount;
+		this.peer = Collections.synchronizedList(new ArrayList<BlockingQueueNode>(totalPeerCount));
+		this.setOpt(args);
 	}
-	public Integer getIdx() {
-		return Idx;
-	}
-	public void setParent(Node parent) {
-		this.parent = parent;
-	}
-	public BlockingQueue<Node> getQueue() {
-		return queue;
-	}
+	
+
 	public String getClientName() {
 		return clientName;
 	}
-	public List<Node> getPeer() {
+	public List<BlockingQueueNode> getPeer() {
 		return peer;
 	}
 	public Integer getTotalPeerCount() {
@@ -85,12 +70,46 @@ public class Node {
 		return text;
 	}
 	
-	public Node(BlockingQueue<Node> queue, String clientName, Integer totalPeerCount, Integer...args) {
-		this.queue = queue;
-		this.clientName = clientName;
-		this.totalPeerCount = totalPeerCount;
-		this.peer = Collections.synchronizedList(new ArrayList<Node>(totalPeerCount));
-		setOpt(args);
+	protected void setOpt(Integer...args) {
+		final String[] CATEGORY = {"Red", "Orange", "Yellow", "Grean", "Blue", "Navy", "Purple"};
+
+		if((categoryIndex = args[0]) < 0 || categoryIndex > CATEGORY.length-1) {
+			// error
+			//log("setOpt args error");
+			return;
+		}
+		
+		if(args.length == 1) {
+			this.option = new String[1];
+			this.option[0] = CATEGORY[categoryIndex];
+			return;
+		}
+		else if (args.length == 3) {
+			minusError = args[1];
+			plusError = args[2];
+		}
+		else {
+			// error
+			//log("setOpt args error");
+			return;
+		}
+			
+		if((minusError = categoryIndex - minusError) < 0 || minusError > categoryIndex) {
+			// warning
+			//log("setOpt warning - Set minusError-value to 0");
+			minusError = 0;
+		}
+		if((plusError = categoryIndex + plusError) >= CATEGORY.length || plusError < categoryIndex) {
+			// warning
+			//log("setOpt warning - Set plusError-value to " + (CATEGORY.length-1));
+			plusError = CATEGORY.length-1;
+		}
+		
+		this.option = new String[plusError-minusError+1];
+		
+		for(int i=minusError, j=0; i<plusError+1; i++,j++) {
+			this.option[j] = CATEGORY[i];
+		}
 	}
 	
 	@Override
@@ -106,7 +125,7 @@ public class Node {
 		if(peer.size() == 0) 
 			text += "no peer";
 		else {
-			for(Node node : peer) {
+			for(BlockingQueueNode node : peer) {
 				if(node == null) continue;
 				text += node.clientName + " (";
 				for(int i=0; i<node.option.length; i++) {
@@ -119,145 +138,5 @@ public class Node {
 		}
 		text += "]";
 		return text;
-	}
-	
-	public void setOpt(Integer...args) {
-		final String[] CATEGORY = {"Red", "Orange", "Yellow", "Grean", "Blue", "Navy", "Purple"};
-
-		if((categoryIndex = args[0]) < 0 || categoryIndex > CATEGORY.length-1) {
-			// error
-			log("setOpt args error");
-			return;
-		}
-		
-		if(args.length == 1) {
-			this.option = new String[1];
-			this.option[0] = CATEGORY[categoryIndex];
-			return;
-		}
-		else if (args.length == 3) {
-			minusError = args[1];
-			plusError = args[2];
-		}
-		else {
-			// error
-			log("setOpt args error");
-			return;
-		}
-			
-		if((minusError = categoryIndex - minusError) < 0 || minusError > categoryIndex) {
-			// error
-			log("setOpt error - Set minusError-value to 0");
-			minusError = 0;
-		}
-		if((plusError = categoryIndex + plusError) >= CATEGORY.length || plusError < categoryIndex) {
-			// error
-			log("setOpt error - Set plusError-value to " + (CATEGORY.length-1));
-			plusError = CATEGORY.length-1;
-		}
-		
-		this.option = new String[plusError-minusError+1];
-		
-		for(int i=minusError, j=0; i<plusError+1; i++,j++) {
-			this.option[j] = CATEGORY[i];
-		}
-	}
-	
-	public boolean isSimilarPeer(Node node) {
-		// this option
-		if(!isContain(this.option, node.getOption())) return false;
-		
-		// this peer option
-		for(int i=0; i<peer.size(); i++) {
-			Node pnode = peer.get(i);
-			if(!isContain(pnode.option, node.option)) return false;
-		}
-		
-		// node peer option
-		List<Node> plist = node.getPeer();
-		if(!plist.isEmpty()) {
-			for(int i=0; i<plist.size(); i++) {
-				// this option
-				Node pnode = plist.get(i);
-				if(!isContain(this.option, pnode.option)) return false;
-				
-				// this peer option
-				for(int j=0; j<peer.size(); j++) {
-					Node thisPnode = peer.get(j);
-					if(!isContain(thisPnode.option, pnode.option)) return false;
-				}
-			}
-			
-		}
-		return true;
-	}
-	
-	private boolean isContain(String[] strArr1, String[] strArr2) {
-		for(String thisOpt : strArr1) {
-			for(String nodeOpt : strArr2) {
-				if(thisOpt.equals(nodeOpt)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
-	public boolean isPeerFull() {
-		return peer.size() == totalPeerCount;
-	}
-	
-	private Lock peerLock;
-	
-	public boolean removePeerNode(Node node) {
-		synchronized (peerLock) {
-			for(Node pnode : peer) {
-				if(pnode.clientName.equals(node.clientName)) {
-					peer.remove(pnode);
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-	
-	// 재귀 형태로 수정해야하나?
-	public boolean setPeerNode(Node node) {
-		synchronized (peerLock) {
-			if(isPeerFull()) {
-				return false;
-			}
-			Integer needCnt = getNeedPeerCount();
-			if(needCnt > 0) {
-				peer.add(node);
-				List<Node> plist;
-				while(!(plist = node.getPeer()).isEmpty() && (needCnt = getNeedPeerCount()) > 0) {
-					for(int i=0; i<plist.size(); i++) {
-						Node pnode = plist.get(i);
-						if(pnode != null) {
-							peer.add(pnode);
-							break;
-						}
-					}
-				}
-				plist.clear();
-				return true;
-			}
-			return false;
-		}
-	}
-	
-	public Node setLoosenNode() {
-		if(parent != null)
-			parent.removePeerNode(this);
-		
-		if(plusError + minusError > 7) { // 7 is CATEGORY length
-			synchronized (peerLock) {
-				totalPeerCount--;
-			}
-		}
-		else
-			setOpt(categoryIndex, ++minusError, ++plusError);
-		return this;
 	}
 }

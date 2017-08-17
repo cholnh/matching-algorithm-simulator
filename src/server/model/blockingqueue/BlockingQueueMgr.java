@@ -1,13 +1,13 @@
 package server.model.blockingqueue;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
-
-import server.control.log.LogMgr;
+import server.control.manager.UIMgr;
+import server.view.MainFrame;
 
 /**
  * BlockingQueueMgr
@@ -16,13 +16,6 @@ import server.control.log.LogMgr;
  * @author Choi
  */
 public class BlockingQueueMgr {
-
-	/** 로그 */
-	static Logger logger = LogMgr.getInstance("BlockingQueueMgr");
-	@SuppressWarnings("unused")
-	private static void log(String text) {
-		System.out.println(text);
-	}
 	
 	/** INSTANCE */
 	private static class Singleton {
@@ -35,83 +28,123 @@ public class BlockingQueueMgr {
 	private BlockingQueueMgr() {/** Singleton */}
 	
 	/** Field */
-	private final Map<Integer, Node> waitingMap = Collections.synchronizedMap(new HashMap<Integer, Node>());
+	private final Map<Integer, BlockingQueueNode> waitingMap = new HashMap<Integer, BlockingQueueNode>();
+	MainFrame ui = UIMgr.getInstance().getMainFrame();
 	
-	public void examine(Node node) {
-		
-		if(node.getTotalPeerCount() <= 0) {
-			complete(node);
-			return ;
-		}
-		
-		Integer emptyIdx = waitingMap.size();
-		Integer nodeCnt = node.getCurPeerCount() + 1;
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		
-		for(int i=0; i<waitingMap.size(); i++) {
-			Node wnode = waitingMap.get(i);
-			if(wnode == null) emptyIdx = i;
-			else {
-				if(wnode.isSimilarPeer(node)) {
-					Integer needCnt = wnode.getNeedPeerCount();
-					if(needCnt == nodeCnt) {
-						// 바로 등록 FP
-						if(wnode.setPeerNode(node)) {
-							complete(wnode);
-							return;
+	public synchronized void examine(BlockingQueueNode node) {
+			if(node.getTotalPeerCount() <= 0 || node.isPeerFull()) {
+				complete(node);
+				return ;
+			}
+			
+			Integer emptyIdx = waitingMap.size();
+			Integer nodeCnt = node.getCurPeerCount() + 1;
+			Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+			
+			for(int i=0; i<waitingMap.size(); i++) {
+				BlockingQueueNode wnode = waitingMap.get(i);
+				if(wnode == null) emptyIdx = i;
+				else {
+					if(wnode.isSimilarPeer(node)) {
+						Integer needCnt = wnode.getNeedPeerCount();
+						if(needCnt == nodeCnt) {
+							// 바로 등록 FP
+							if(wnode.setPeerNode(node)) {
+								complete(wnode);
+								return;
+							}
 						}
+						map.put(i, needCnt);
 					}
-					map.put(i, needCnt);
 				}
 			}
-		}
-		
-		Integer minVal = -1;
-		Iterator<Entry<Integer, Integer>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()) {
-			Integer needPeerCount = iterator.next().getValue();
-			if(minVal == -1) {
-				minVal = needPeerCount;
-				continue;
-			} 
-			if(minVal > needPeerCount) {
-				minVal = needPeerCount;
+			
+			Integer IdxminVal = -1;
+			Integer tmp = -1;
+			List<Integer> minList = new ArrayList<Integer>();
+			Iterator<Entry<Integer, Integer>> iterator = map.entrySet().iterator();
+			while(iterator.hasNext()) {
+				Entry<Integer, Integer> entry = iterator.next();
+				Integer idx = entry.getKey();
+				Integer needPeerCount = entry.getValue();
+				
+				minList.add(idx);
+				if(tmp == -1) {
+					tmp = needPeerCount;
+					continue;
+				}
+				if(tmp > needPeerCount) {
+					tmp = needPeerCount;
+					IdxminVal = idx;
+				}
 			}
-		}
+			
+			if(IdxminVal != -1) {
+				// Into peer 
+				BlockingQueueNode wnode = waitingMap.get(IdxminVal);
+				if(wnode == null) {
+					System.out.println("wnode Null!! minVal : " + IdxminVal);
+					for(Integer idx : minList) {
+						if((wnode = waitingMap.get(idx)) != null) {
+							System.out.println("So minVal set - " + idx);
+							break;
+						}
+					}
+				}
+				if(wnode == null) return;
+				wnode.setPeerNode(node);		// peer로 등록
+				ui.setServerPeer(wnode.getPeerText(), wnode.getClientName());
+				System.out.println(node.clientName + "] Into peer - " + wnode.clientName + "  //  getTotalPeerCount" + wnode.getTotalPeerCount());
+				
+				Integer nodeIdx;
+				synchronized (this) {
+					if((nodeIdx = node.getIdx()) != null) {	// 신규node가 아닐 경우
+						waitingMap.remove(nodeIdx);	// waitingMap에서 node 삭제
+						node.setIdx(null);			// node의 Idx 초기화
+						ui.removeServerTableNode(node.getClientName());
+					}
+				}
+			} 
+			else {
+				// New
+				System.out.println(node.clientName + "] New  //  getTotalPeerCount : " + node.getTotalPeerCount());
+				synchronized (this) {
+					node.setIdx(emptyIdx);			// node의 Idx 초기화
+				}
+				waitingMap.put(emptyIdx, node);	// waitingMap에 node 추가
+				ui.setServerStatus("대기열등록", node.getClientName());
+				ui.setServerIdx(emptyIdx+"", node.getClientName());
+			}
 		
-		if(minVal != -1) {
-			// Into peer 
-			Node wnode = waitingMap.get(minVal);
-			wnode.setPeerNode(node);
-		} 
-		else {
-			// New
-			waitingMap.put(emptyIdx, node);
-		}
 		return;
 	}
 	
-	public void insert(Node node) {
+	public void insert(BlockingQueueNode node) {
+		Integer Idx;
+		synchronized (this) {
+			if((Idx = node.getIdx()) != null) {
+				if(waitingMap.containsKey(Idx)) {
+					//ui.removeServerTableNode(node.getClientName());
+					waitingMap.remove(Idx);
+				}
+			}
+		}
 		examine(node);
 	}
-	
-	public void insert(Node node, Integer Idx) {
-		if(waitingMap.containsKey(Idx)) {
-			waitingMap.remove(Idx);
-		}
-		insert(node);
-	}
-	
-	public void complete(Node node) {
+
+	public void complete(BlockingQueueNode node) {
 		try {
+			synchronized (this) {
+				if(node.getIdx() != null) {
+					waitingMap.remove(node.getIdx());
+				}
+				ui.completedServerNode(node.getClientName());
+			}
 			node.getQueue().put(node);
 		
-			for(Node pnode : node.getPeer()) {
+			for(BlockingQueueNode pnode : node.getPeer()) {
 				pnode.getQueue().put(node);
 			}
-			
-			if(node.getIdx() != null)
-				waitingMap.remove(node.getIdx());
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
