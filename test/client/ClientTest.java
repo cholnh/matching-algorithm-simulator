@@ -30,7 +30,7 @@ public class ClientTest {
 	@Test
 	public void nodeTest_mThread() throws Throwable {
 		TestRunnable[] tests = new TestRunnable[HOW_MANY_CLIENT];
-		ClientMgr clientMgr = new ClientMgr();
+		//ClientMgr clientMgr = new ClientMgr();
 		MainFrame ui = UIMgr.getInstance().getMainFrame();
 		
 		for (int i = 0; i < tests.length; i++) {

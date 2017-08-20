@@ -1,7 +1,6 @@
 package server.control.util;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Display;
 
 /**
@@ -17,6 +16,7 @@ public class UITimer {
 	private volatile boolean isDone; 
 	private volatile boolean isInterrupted;
 	private Integer waitingTime = 0, min = 0, max = 10;
+	@SuppressWarnings("unused")
 	private Display curDidplay;
 	
 	public UITimer(Display didplay) {
@@ -51,7 +51,7 @@ public class UITimer {
 				isDone = true;
 			}
 		}).start();
-		int count = 0;
+		//int count = 0;
 		while(!isDone) {
 			//System.out.println(""+isDone + (count++));
 			/*
