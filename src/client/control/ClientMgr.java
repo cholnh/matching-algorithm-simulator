@@ -13,7 +13,6 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
-import net.sourceforge.groboutils.junit.v1.TestRunnable;
 import server.control.log.LogMgr;
 import server.control.manager.UIMgr;
 import server.model.blockingqueue.BlockingQueueNode;
