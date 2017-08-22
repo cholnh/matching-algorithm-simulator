@@ -151,14 +151,14 @@ public class ServerMgr {
 			
 				while(true) {
 					try {
-						ui.removeServerTableNode(bnode.getClientName());
+						//ui.removeServerTableNode(bnode.getClientName());
 						ui.setServerTableNode("대기열검색중", 
 											bnode.getClientName(), 
 											bnode.getOptionText(), 
 											bnode.getTotalPeerCount()+"", 
-											bnode.getPeerText() == null ? "" : bnode.getPeerText(), 
+											bnode.getPeerText(), 
 											bnode.getCurPeerCount()+"",
-											bnode.getParentText() == null ? "" : bnode.getParentText());
+											bnode.getParentText());
 						
 						waitingQueue.put(bnode);								//	waiting queue에 삽입
 						sendNode = bnode.getQueue().poll(30, TimeUnit.SECONDS);	// 노드가 원하는 조건을 만족(피어를 모두 채움)할 때 까지 poll
@@ -166,9 +166,7 @@ public class ServerMgr {
 						if(sendNode == null) {
 							// Time out!
 							ui.setServerStatus("조건변경중", bnode.getClientName());
-							bnode.setLoosenNode();
-							bnode.getQueue().clear();
-							queueMgr.removeNode(bnode);
+							queueMgr.timeOut(bnode);
 							continue;
 						}
 						

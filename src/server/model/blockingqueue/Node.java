@@ -30,7 +30,7 @@ public class Node implements Serializable {
 	public Node(String clientName, Integer totalPeerCount, Integer...args) {
 		this.clientName = clientName;
 		this.totalPeerCount = totalPeerCount;
-		this.peer = Collections.synchronizedList(new ArrayList<BlockingQueueNode>(totalPeerCount));
+		this.peer = Collections.synchronizedList(new ArrayList<BlockingQueueNode>());
 		this.setOpt(args);
 	}
 	
@@ -60,6 +60,13 @@ public class Node implements Serializable {
 			if(i != option.length - 1)
 				text += " ";
 		}
+		text += " 대표 [";
+		for(int i=0; i<repOption.length; i++) {
+			text += repOption[i];
+			if(i != repOption.length - 1)
+				text += " ";
+		}
+		text += "]";
 		return text;
 	}
 	public String getPeerText() {
@@ -88,6 +95,7 @@ public class Node implements Serializable {
 		if(args.length == 1) {
 			this.option = new String[1];
 			this.option[0] = CATEGORY[categoryIndex];
+			this.repOption = this.option;
 			return;
 		}
 		else if (args.length == 3) {
@@ -132,6 +140,7 @@ public class Node implements Serializable {
 		for(int i=tmpMin, j=0; i<tmpMax+1; i++,j++) {
 			this.option[j] = CATEGORY[i];
 		}
+		this.repOption = this.option;
 	}
 	
 	@Override

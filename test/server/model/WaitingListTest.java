@@ -64,9 +64,7 @@ public class WaitingListTest {
 							System.out.println(waitingQueue);
 							if(recv == null) {
 								// Time out!
-								node.setLoosenNode();
-								//node.getQueue().clear();
-								queueMgr.removeNode(node);
+								queueMgr.timeOut(node);
 								continue;
 							}
 							System.out.println(node.getClientName()+"] " + test.teamPrint(recv));

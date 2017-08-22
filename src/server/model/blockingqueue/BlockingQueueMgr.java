@@ -60,10 +60,18 @@ public class BlockingQueueMgr {
 					BlockingQueueNode node = waitingQueue.take();	// block
 					System.out.println("waitingQueue] " + node.getClientName() + " 받음");
 					
+					ui.setServerRemarks("lockwait", node.getClientName());
 					lock.lock();
 					try {
+						ui.setServerRemarks("locking", node.getClientName());
+						ui.setExamining(node.getClientName(), true);
+						
 						examine(node);
+						
+						if(node.getNeedPeerCount() != 0)
+							ui.setExamining(node.getClientName(), false);
 					} finally {
+						ui.setServerRemarks("unlock", node.getClientName());
 						lock.unlock();
 					}
 	
@@ -79,6 +87,7 @@ public class BlockingQueueMgr {
 	
 	private void examine(BlockingQueueNode node) {
 		if(node.getNeedPeerCount() == 0) {
+			ui.setServerPeer("no peer", node.getClientName());
 			complete(node);
 			return;
 		}
@@ -87,17 +96,25 @@ public class BlockingQueueMgr {
 			if(isSameTPC(node, wnode) && wnode.isSimilarNode(node)) {
 				// peer 등록
 				wnode.setPeerNode(node);
+				ui.setServerPeer(wnode.getPeerText(), wnode.getClientName());
 				
 				if(wnode.isPeerFull()) {
 					// Full Peer
-					System.out.println("complete] " + node.getClientName());
+					System.out.println("complete] " + wnode.getClientName());
+					
+					waitingList.remove(wnode);
+					//ui.removeServerTableNode(wnode.getClientName());
+					
 					complete(wnode);
 					return;
 				}
 				else {
 					// node -> wnode`s peer
 					System.out.println("node -> wnode`s peer] " + node.getClientName() + " -> " + wnode.getClientName());
+					
 					waitingList.remove(node);
+					ui.removeServerTableNode(node.getClientName());
+					
 					return;
 				}
 			}
@@ -105,21 +122,30 @@ public class BlockingQueueMgr {
 		
 		// 탐색 실패 -> 신규등록
 		System.out.println("신규등록] "+node.getClientName());
+		
+		ui.setServerStatus("신규등록", node.getClientName());
+		
 		insert(node);
+	}
+	
+	public void timeOut(BlockingQueueNode timeOutNode) {
+		timeOutNode.setLoosenNode();
+		removeNode(timeOutNode);
 	}
 	
 	private boolean isSameTPC(BlockingQueueNode arg1, BlockingQueueNode arg2) {
 		// Total Peer Count
-		return arg1.getTotalPeerCount() == arg2.getTotalPeerCount();
+		return ((int)arg1.getTotalPeerCount() == (int)arg2.getTotalPeerCount());
 	}
 	
 	private void complete(BlockingQueueNode node) {
 		try {
-			//ui.completedServerNode(node.getClientName());
-			waitingList.remove(node);
+			ui.completedServerNode(node.getClientName());
 			node.getQueue().put(node);
-		
+			System.out.println("########################## node 보냄 " + node.getClientName());
 			for(BlockingQueueNode pnode : node.getPeer()) {
+				System.out.println("########################## pnode 보냄 " + pnode.getClientName());
+				//ui.completedServerNode(pnode.getClientName());
 				pnode.getQueue().put(node);
 			}
 			
@@ -131,25 +157,28 @@ public class BlockingQueueMgr {
 	
 	
 	public void removeNode(BlockingQueueNode node) {
+		ui.setServerRemarks("lockwait", node.getClientName());
 		System.out.print("lock wait " + node.clientName + "...");
 		try {
 			if(lock.tryLock(5, TimeUnit.SECONDS)) {
+				ui.setServerRemarks("locking", node.getClientName());
 				System.out.println("done");
 				try {
-					System.out.println("\n********************************************");
-					System.out.println("removeNode("+node.getClientName()+")");
-					System.out.println("제거 전 waitingList");
-					System.out.println(waitingList);
-					System.out.println(node.getClientName() + "제거 결과 - " + waitingList.remove(node));
+//					System.out.println("\n********************************************");
+//					System.out.println("removeNode("+node.getClientName()+")");
+//					System.out.println("제거 전 waitingList");
+//					System.out.println(waitingList);
+//					System.out.println(node.getClientName() + "제거 결과 - " + waitingList.remove(node));
 					
 					
 					waitingQueue.remove(node);	// 큐에 대기중이라면 제거
-					// waitingList.remove(node)	// 리스트에 있다면 제거
+					waitingList.remove(node);	// 리스트에 있다면 제거
 					
 					// 어딘가의 peer로 속해있다면 제거
 					BlockingQueueNode parentNode = node.getParent();
 					if(parentNode != null) {
 						parentNode.removePeerNode(node);
+						ui.setServerPeer(parentNode.getClientName(), parentNode.getPeerText());
 						node.setParent(null);
 						//return;
 					}
@@ -180,12 +209,25 @@ public class BlockingQueueMgr {
 							firstNode.setPeerNode(pnode);
 						}
 					}
+					
+					if(firstNode != null) {
+						ui.setServerTableNode("신규 등록", 
+											firstNode.getClientName(), 
+											firstNode.getOptionText(), 
+											firstNode.getTotalPeerCount()+"", 
+											firstNode.getPeerText(), 
+											firstNode.getCurPeerCount()+"", 
+											node.getClientName() + " 에서 이전");
+					}
+					
+					ui.removeServerTableNode(node.getClientName());
 					node.setPeerClear();
 					
-					System.out.println("제거 후 waitingList");
-					System.out.println(waitingList);
-					System.out.println("\n********************************************");
+//					System.out.println("제거 후 waitingList");
+//					System.out.println(waitingList);
+//					System.out.println("\n********************************************");
 				} finally {
+					ui.setServerRemarks("unlock", node.getClientName());
 					lock.unlock();
 				}
 			}

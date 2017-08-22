@@ -112,14 +112,14 @@ public class ClientMgr {
 			Integer num = new Random().nextInt(DELAY_MAXIMUM)+DELAY_MINIMUM;
 			ui.setClientTableNode("전송대기중 "+num+"secs...", sendNode.getClientName(), sendNode.getOptionText(), ""+sendNode.getTotalPeerCount(), "");
 			
-			//System.out.print("wait "+ num + "sec...");
-//			try {
-//				Thread.sleep(num*1000);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			//System.out.println("done");
+			System.out.print("wait "+ num + "sec...");
+			try {
+				Thread.sleep(num*1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("done");
 			
 			ui.setClientStatus("전송중", sendNode.getClientName());
 			/** Send */
@@ -144,7 +144,7 @@ public class ClientMgr {
 				}
 				text += " ]";
 				
-				ui.setClientTeam(text, recvNode.getClientName());
+				ui.setClientTeam(text, sendNode.getClientName());
 				ui.setCl(++clientCount);
 				log(text);
 			}

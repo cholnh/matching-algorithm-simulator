@@ -1,4 +1,5 @@
 package server.model.blockingqueue;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -16,7 +17,8 @@ public class BlockingQueueNode extends Node {
 	/** Field */
 	private BlockingQueue<Node> queue;
 	private BlockingQueueNode parent;
-
+	
+	
 	public BlockingQueueNode(String clientName, Integer totalPeerCount, Integer...args) {
 		super(clientName, totalPeerCount, args);
 		queue = new ArrayBlockingQueue<Node>(1);
@@ -32,10 +34,11 @@ public class BlockingQueueNode extends Node {
 		return parent;
 	}
 	public String getParentText() {
-		return parent == null ? null : parent.getClientName();
+		return parent == null ? "" : parent.getClientName();
 	}
 	
 	public boolean isSimilarNode(BlockingQueueNode node) {
+		/*
 		// this option
 		if(!isContain(this.option, node.getOption())) return false;
 		
@@ -45,6 +48,12 @@ public class BlockingQueueNode extends Node {
 			if(!isContain(pnode.option, node.option)) return false;
 		}
 		return true;
+		*/
+		if(isContain(this.repOption, node.getOption()))
+			return true;
+		return false;
+			
+		
 	}
 	
 	public boolean isSimilarPeer(BlockingQueueNode node) {
@@ -76,6 +85,20 @@ public class BlockingQueueNode extends Node {
 		return true;
 	}
 	
+	private String[] capOpt(BlockingQueueNode node) {
+		ArrayList<String> capList = new ArrayList<String>();
+		for(String thisOpt : this.option)
+			for(String nodeOpt : node.getOption())
+				if(thisOpt.equals(nodeOpt)) {
+					capList.add(thisOpt);
+				}
+		String[] returnArr = new String[capList.size()];
+		for(int i=0; i<returnArr.length; i++) {
+			returnArr[i] = capList.get(i);
+		}
+		return returnArr;
+	}
+	
 	private boolean isContain(String[] strArr1, String[] strArr2) {
 		for(String thisOpt : strArr1) {
 			for(String nodeOpt : strArr2) {
@@ -86,6 +109,7 @@ public class BlockingQueueNode extends Node {
 		}
 		return false;
 	}
+	
 	
 	public boolean isPeerFull() {
 		return peer.size() >= totalPeerCount;
@@ -109,12 +133,10 @@ public class BlockingQueueNode extends Node {
 	public void setPeerNode(BlockingQueueNode node) {
 		// try node into -> this`s peer
 		
-		if(isPeerFull()) {
-			return;
-		}
 		peer.add(node);
+		super.repOption = capOpt(node);
 		node.setParent(this);
-		
+		System.out.println("^^^^^^^^^ peer 등록 ] " + node.getClientName() + " >> " + peer);
 		/*
 		if(isPeerFull()) {
 			return false;

@@ -125,6 +125,10 @@ public class MainFrame {
 		tblclmnNewColumn_4.setWidth(83);
 		tblclmnNewColumn_4.setText("Parent");
 		
+		TableColumn tblclmnEtc = new TableColumn(table, SWT.CENTER);
+		tblclmnEtc.setWidth(100);
+		tblclmnEtc.setText("Remarks");
+		
 		table_1 = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
 		table_1.setTouchEnabled(true);
 		table_1.setHeaderVisible(true);
@@ -272,6 +276,7 @@ public class MainFrame {
 			}
 		});
 	}
+	
 	public synchronized void setServerStatus(String status, String name) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
@@ -333,7 +338,21 @@ public class MainFrame {
 			}
 		});
 	}
-	
+	public synchronized void setServerRemarks(String remarks, String name) {
+		table.getDisplay().asyncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				if (!table.isDisposed()) {
+					TableItem item = getServerTableItem(name);
+					if(item != null)
+						item.setText(7, remarks);
+					
+					table.getParent().layout();
+				}
+			}
+		});
+	}
 	
 	public synchronized void completedServerNode(String name) {
 		table.getDisplay().asyncExec(new Runnable() {
@@ -346,6 +365,28 @@ public class MainFrame {
 						if(items[i].getText(1).equals(name)) {
 							items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_CYAN));
 							items[i].setText(0, "완료");
+						}
+					}
+					table.getParent().layout();
+				}
+				
+			}
+		});
+	}
+	
+	public synchronized void setExamining(String name, boolean tf) {
+		table.getDisplay().asyncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				if (!table.isDisposed()) {
+					TableItem[] items = table.getItems();
+					for(int i=0; i<items.length; i++) {
+						if(items[i].getText(1).equals(name)) {
+							if(tf)
+								items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
+							else
+								items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 						}
 					}
 					table.getParent().layout();
@@ -412,11 +453,14 @@ public class MainFrame {
 					TableItem[] items = table.getItems();
 					for(int i=0; i<items.length; i++) {
 						if(items[i].getText(1).equals(name)) {
+							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + name);
+							items[i].setText(1, "삭제");
 							table.remove(i);
 							return;
 						}
 					}
 				}
+				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + name + " 삭제 실패");
 			}
 		});
 	}
