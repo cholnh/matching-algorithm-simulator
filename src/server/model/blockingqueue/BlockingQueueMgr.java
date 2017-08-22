@@ -1,10 +1,12 @@
 package server.model.blockingqueue;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import server.control.manager.UIMgr;
 import server.view.MainFrame;
@@ -28,9 +30,188 @@ public class BlockingQueueMgr {
 	private BlockingQueueMgr() {/** Singleton */}
 	
 	/** Field */
-	private final Map<Integer, BlockingQueueNode> waitingMap = new HashMap<Integer, BlockingQueueNode>();
+	private final Thread coreThread = new Thread(new CoreHandler());
+	private final BlockingQueue<BlockingQueueNode> waitingQueue = new LinkedBlockingQueue<BlockingQueueNode>();
+	private final List<BlockingQueueNode> waitingList = Collections.synchronizedList(new ArrayList<BlockingQueueNode>());
+	private Lock lock = new ReentrantLock();
 	MainFrame ui = UIMgr.getInstance().getMainFrame();
 	
+	public BlockingQueue<BlockingQueueNode> getWaitingQueue() {
+		return waitingQueue;
+	}
+	
+	public void coreStart() {
+		if(coreThread.isAlive()) return;
+		if(!coreThread.isInterrupted()) {
+			coreThread.start();
+		}
+	}
+	
+	public void coreStop() {
+		coreThread.interrupt();
+	}
+	
+	class CoreHandler implements Runnable {
+
+		@Override
+		public void run() {
+			while(true) {
+				try {
+					BlockingQueueNode node = waitingQueue.take();	// block
+					System.out.println("waitingQueue] " + node.getClientName() + " 받음");
+					
+					lock.lock();
+					try {
+						examine(node);
+					} finally {
+						lock.unlock();
+					}
+	
+				} catch (InterruptedException e) {
+					System.err.println("\n[core Stop]");
+					e.printStackTrace();
+					break;
+				}	
+			}
+		}
+		
+	}
+	
+	private void examine(BlockingQueueNode node) {
+		if(node.getNeedPeerCount() == 0) {
+			complete(node);
+			return;
+		}
+		
+		for(BlockingQueueNode wnode : waitingList) {
+			if(isSameTPC(node, wnode) && wnode.isSimilarNode(node)) {
+				// peer 등록
+				wnode.setPeerNode(node);
+				
+				if(wnode.isPeerFull()) {
+					// Full Peer
+					System.out.println("complete] " + node.getClientName());
+					complete(wnode);
+					return;
+				}
+				else {
+					// node -> wnode`s peer
+					System.out.println("node -> wnode`s peer] " + node.getClientName() + " -> " + wnode.getClientName());
+					waitingList.remove(node);
+					return;
+				}
+			}
+		}
+		
+		// 탐색 실패 -> 신규등록
+		System.out.println("신규등록] "+node.getClientName());
+		insert(node);
+	}
+	
+	private boolean isSameTPC(BlockingQueueNode arg1, BlockingQueueNode arg2) {
+		// Total Peer Count
+		return arg1.getTotalPeerCount() == arg2.getTotalPeerCount();
+	}
+	
+	private void complete(BlockingQueueNode node) {
+		try {
+			//ui.completedServerNode(node.getClientName());
+			waitingList.remove(node);
+			node.getQueue().put(node);
+		
+			for(BlockingQueueNode pnode : node.getPeer()) {
+				pnode.getQueue().put(node);
+			}
+			
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void removeNode(BlockingQueueNode node) {
+		System.out.print("lock wait " + node.clientName + "...");
+		try {
+			if(lock.tryLock(5, TimeUnit.SECONDS)) {
+				System.out.println("done");
+				try {
+					System.out.println("\n********************************************");
+					System.out.println("removeNode("+node.getClientName()+")");
+					System.out.println("제거 전 waitingList");
+					System.out.println(waitingList);
+					System.out.println(node.getClientName() + "제거 결과 - " + waitingList.remove(node));
+					
+					
+					waitingQueue.remove(node);	// 큐에 대기중이라면 제거
+					// waitingList.remove(node)	// 리스트에 있다면 제거
+					
+					// 어딘가의 peer로 속해있다면 제거
+					BlockingQueueNode parentNode = node.getParent();
+					if(parentNode != null) {
+						parentNode.removePeerNode(node);
+						node.setParent(null);
+						//return;
+					}
+					
+					// 자신에게 peer가 등록되어있다면 제거 후 peer들 끼리 재등록 
+					
+					/*
+					for(int i=0; i<plist.size(); i++) {
+						BlockingQueueNode pnode = plist.get(i);
+						pnode.setParent(null);
+						
+						insert(pnode);
+					}
+					node.setPeer(null);
+					*/
+					List<BlockingQueueNode> plist = node.getPeer();
+					BlockingQueueNode firstNode = null;
+					for(int i=0; i<plist.size(); i++) {
+						BlockingQueueNode pnode = plist.get(i);
+						if(i==0) {
+							// 첫번째 피어노드
+							firstNode = pnode;
+							firstNode.setParent(null);
+							insert(firstNode);
+						}
+						else {
+							// 나머지
+							firstNode.setPeerNode(pnode);
+						}
+					}
+					node.setPeerClear();
+					
+					System.out.println("제거 후 waitingList");
+					System.out.println(waitingList);
+					System.out.println("\n********************************************");
+				} finally {
+					lock.unlock();
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void insert(BlockingQueueNode node) {
+		Integer idx = waitingList.size();
+		Integer nNeedPeerCnt = node.getNeedPeerCount();
+		
+		for(int i=0; i<waitingList.size(); i++) {
+			BlockingQueueNode wnode = waitingList.get(i);
+			Integer wNeedPeerCnt = wnode.getNeedPeerCount();
+			
+			if(nNeedPeerCnt < wNeedPeerCnt) {
+				idx = waitingList.indexOf(wnode);	// Not i
+				break;
+			}
+		}
+		
+		waitingList.add(idx, node);
+	}
+	
+	/*
 	public synchronized void examine(BlockingQueueNode node) {
 			if(node.getTotalPeerCount() <= 0 || node.isPeerFull()) {
 				complete(node);
@@ -118,7 +299,6 @@ public class BlockingQueueMgr {
 		
 		return;
 	}
-	
 	public void insert(BlockingQueueNode node) {
 		Integer Idx;
 		synchronized (this) {
@@ -150,4 +330,15 @@ public class BlockingQueueMgr {
 			e.printStackTrace();
 		}
 	}
+	public BlockingQueueNode getNode(String clientName) {
+		for(BlockingQueueNode wnode : waitingList) {
+			if(wnode.getClientName().equals(clientName)) {
+				return wnode;
+			}
+		}
+		return null;
+	}
+	*/
+	
+	
 }

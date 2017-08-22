@@ -101,10 +101,6 @@ public class MainFrame {
 		tblclmnStatus_1.setWidth(103);
 		tblclmnStatus_1.setText("Status");
 		
-		TableColumn clientColumn = new TableColumn(table, SWT.CENTER);
-		clientColumn.setWidth(100);
-		clientColumn.setText("Idx");
-		
 		TableColumn tblclmnNewColumn = new TableColumn(table, SWT.CENTER);
 		tblclmnNewColumn.setWidth(100);
 		tblclmnNewColumn.setText("Name");
@@ -199,14 +195,14 @@ public class MainFrame {
 	}
 	
 	// server
-	//	0		1		2		3			4			5		6		7
-	// status	idx		name	option		total		peer	cur		parent
+	//	0		1		2			3			4		5		6
+	// status	name	option		total		peer	cur		parent
 	
 	// client
 	//	0		1		2		3			4
 	// status	name	option	total		team
 	
-	public synchronized void setServerTableNode(String status, String idx, String name, String option, String total, String peer, String cur, String parent) {
+	public synchronized void setServerTableNode(String status, String name, String option, String total, String peer, String cur, String parent) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
 			@Override
@@ -214,13 +210,12 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem tableItem = new TableItem(table, SWT.NONE);
 					tableItem.setText(0, status);
-					tableItem.setText(1, idx);
-					tableItem.setText(2, name);
-					tableItem.setText(3, option);
-					tableItem.setText(4, total);
-					tableItem.setText(5, peer);
-					tableItem.setText(6, cur);
-					tableItem.setText(7, parent);
+					tableItem.setText(1, name);
+					tableItem.setText(2, option);
+					tableItem.setText(3, total);
+					tableItem.setText(4, peer);
+					tableItem.setText(5, cur);
+					tableItem.setText(6, parent);
 					
 					table.getParent().layout();
 				}
@@ -300,28 +295,14 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem item = getServerTableItem(name);
 					if(item != null)
-						item.setText(5, peer);
+						item.setText(4, peer);
 					
 					table.getParent().layout();
 				}
 			}
 		});
 	}
-	public synchronized void setServerIdx(String Idx, String name) {
-		table.getDisplay().asyncExec(new Runnable() {
-			
-			@Override
-			public void run() {
-				if (!table.isDisposed()) {
-					TableItem item = getServerTableItem(name);
-					if(item != null)
-						item.setText(1, Idx);
-					
-					table.getParent().layout();
-				}
-			}
-		});
-	}
+
 	public synchronized void setServerCur(String cur, String name) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
@@ -330,7 +311,7 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem item = getServerTableItem(name);
 					if(item != null)
-						item.setText(6, cur);
+						item.setText(5, cur);
 					
 					table.getParent().layout();
 				}
@@ -345,7 +326,7 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem item = getServerTableItem(name);
 					if(item != null)
-						item.setText(7, parent);
+						item.setText(6, parent);
 					
 					table.getParent().layout();
 				}
@@ -362,7 +343,7 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem[] items = table.getItems();
 					for(int i=0; i<items.length; i++) {
-						if(items[i].getText(2).equals(name)) {
+						if(items[i].getText(1).equals(name)) {
 							items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_CYAN));
 							items[i].setText(0, "완료");
 						}
@@ -377,7 +358,7 @@ public class MainFrame {
 	public TableItem getServerTableItem(String name) {
 		TableItem[] items = table.getItems();
 		for(TableItem item : items) {
-			if(item.getText(2).equals(name)) {
+			if(item.getText(1).equals(name)) {
 				return item;
 			}
 		}
@@ -430,7 +411,7 @@ public class MainFrame {
 				if (!table.isDisposed()) {
 					TableItem[] items = table.getItems();
 					for(int i=0; i<items.length; i++) {
-						if(items[i].getText(2).equals(name)) {
+						if(items[i].getText(1).equals(name)) {
 							table.remove(i);
 							return;
 						}
@@ -439,7 +420,7 @@ public class MainFrame {
 			}
 		});
 	}
-	
+	/*
 	public synchronized void setServerTablePeer(String mas, String peer, String peerOpt) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
@@ -451,8 +432,8 @@ public class MainFrame {
 					int i, j = 0;
 					
 					for(i=0; i<items.length; i++) {
-						if(items[i].getText(2).equals(peer)) {
-							tmp += items[i].getText(5);
+						if(items[i].getText(1).equals(peer)) {
+							tmp += items[i].getText(4);
 							break;
 						}
 					}
@@ -461,8 +442,8 @@ public class MainFrame {
 					for(j = 0; j<items.length; j++) {
 						String nm = items[j].getText(1);
 						if(nm.equals(mas)) {
-							items[j].setText(5, items[j].getText(5) + " " + peer + " (" + peerOpt + ") " + tmp);
-							//System.out.println(nm + "에 "+ peer +"등록 : [" + items[j].getText(5) + "]");
+							items[j].setText(4, items[j].getText(4) + " " + peer + " (" + peerOpt + ") " + tmp);
+							//System.out.println(nm + "에 "+ peer +"등록 : [" + items[j].getText(4) + "]");
 							table.remove(i);
 							//System.out.println(nm + "제거");
 							break;
@@ -473,4 +454,5 @@ public class MainFrame {
 			}
 		});
 	}
+	*/
 }

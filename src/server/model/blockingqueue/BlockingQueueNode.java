@@ -17,9 +17,8 @@ public class BlockingQueueNode extends Node {
 	
 	/** Field */
 	private BlockingQueue<Node> queue;
-	private volatile Integer Idx;
 	private BlockingQueueNode parent;
-	
+
 	public BlockingQueueNode(String clientName, Integer totalPeerCount, Integer...args) {
 		super(clientName, totalPeerCount, args);
 		queue = new ArrayBlockingQueue<Node>(1);
@@ -28,17 +27,26 @@ public class BlockingQueueNode extends Node {
 	public BlockingQueue<Node> getQueue() {
 		return queue;
 	}
-	public void setIdx(Integer Idx) {
-		this.Idx = Idx;
-	}
-	public Integer getIdx() {
-		return Idx;
-	}
 	public void setParent(BlockingQueueNode parent) {
 		this.parent = parent;
 	}
+	public BlockingQueueNode getParent() {
+		return parent;
+	}
 	public String getParentText() {
 		return parent == null ? null : parent.getClientName();
+	}
+	
+	public boolean isSimilarNode(BlockingQueueNode node) {
+		// this option
+		if(!isContain(this.option, node.getOption())) return false;
+		
+		// this peer option
+		for(int i=0; i<peer.size(); i++) {
+			BlockingQueueNode pnode = peer.get(i);
+			if(!isContain(pnode.option, node.option)) return false;
+		}
+		return true;
 	}
 	
 	public boolean isSimilarPeer(BlockingQueueNode node) {
@@ -85,67 +93,74 @@ public class BlockingQueueNode extends Node {
 		return peer.size() >= totalPeerCount;
 	}
 	
-	private Lock peerLock = new ReentrantLock();;
-	public Lock getLock() {
-		return peerLock;
-	}
+
 	public boolean removePeerNode(BlockingQueueNode node) {
-		synchronized (peerLock) {
-			for(BlockingQueueNode pnode : peer) {
-				if(pnode.clientName.equals(node.clientName)) {
-					peer.remove(pnode);
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-	
-	// 재귀 형태로 수정해야하나?
-	public synchronized boolean setPeerNode(BlockingQueueNode node) {
-		// try node into -> this`s peer
-		
-			if(isPeerFull()) {
-				return false;
-			}
-			Integer needCnt = getNeedPeerCount();
-			if(needCnt > 0) {
-				peer.add(node);			// 노드 등록
-				node.setParent(this);	// 노드의 부모로 등록
-				System.out.println(clientName + "] " + node.clientName + "가 " + clientName + " 에 등록됨");
-				// node`s peer
-				List<BlockingQueueNode> plist;
-				while(!(plist = node.getPeer()).isEmpty() && (needCnt = getNeedPeerCount()) > 0) {
-					for(int i=0; i<plist.size(); i++) {
-						BlockingQueueNode pnode = plist.get(i);
-						if(pnode != null) {
-							peer.add(pnode);			// 노드 등록
-							pnode.setParent(this);		// 노드의 부모로 등록
-							break;
-						}
-					}
-				}
-				System.out.println(clientName+ "] 최종결과\t" + toString());
-				plist.clear();
+		return peer.remove(node);
+		/*
+		for(BlockingQueueNode pnode : peer) {
+			if(pnode.clientName.equals(node.getClientName())) {
+				peer.remove(pnode);
 				return true;
 			}
-			return false;
+		}
+		
+		return false;
+		 */
+	}
 	
+	public void setPeerNode(BlockingQueueNode node) {
+		// try node into -> this`s peer
+		
+		if(isPeerFull()) {
+			return;
+		}
+		peer.add(node);
+		node.setParent(this);
+		
+		/*
+		if(isPeerFull()) {
+			return false;
+		}
+		Integer needCnt = getNeedPeerCount();
+		if(needCnt > 0) {
+			peer.add(node);			// 노드 등록
+			node.setParent(this);	// 노드의 부모로 등록
+			System.out.println(clientName + "] " + node.clientName + "가 " + clientName + " 에 등록됨");
+			// node`s peer
+			List<BlockingQueueNode> plist;
+			while(!(plist = node.getPeer()).isEmpty() && (needCnt = getNeedPeerCount()) > 0) {
+				for(int i=0; i<plist.size(); i++) {
+					BlockingQueueNode pnode = plist.get(i);
+					if(pnode != null) {
+						peer.add(pnode);			// 노드 등록
+						pnode.setParent(this);		// 노드의 부모로 등록
+						break;
+					}
+				}
+			}
+			System.out.println(clientName+ "] 최종결과\t" + toString());
+			plist.clear();
+			return true;
+		}
+		return false;
+		*/
 	}
 	
 	public BlockingQueueNode setLoosenNode() {
-		// 어딘가에 등록되어 있거나 (또는 clear로 버려진) 노드의 재등록을 위해 parent 삭제
-		System.out.println(clientName + "] loosen");
-		if(parent != null)
-			parent.removePeerNode(this);
 		
-		if(plusError + minusError > 7) { // 7 is CATEGORY length
-			
-				totalPeerCount--;
+		if(plusError + minusError >= 6) { // 7 is CATEGORY length
+			totalPeerCount--;
+			System.out.println(clientName + "] loosen\tplusError : "+plusError+" minusError : " + minusError + " totalPeerCount : "+totalPeerCount);
 			
 		}
-		else
-			super.setOpt(categoryIndex, ++minusError, ++plusError);
+		else {
+			minusError++;
+			plusError++;
+			System.out.println(clientName + "] loosen\tplusError : "+plusError+" minusError : " + minusError + " totalPeerCount : "+totalPeerCount);
+			
+			super.setOpt(categoryIndex, minusError, plusError);
+			
+		}
 		return this;
 	}
 }

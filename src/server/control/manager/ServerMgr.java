@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -83,6 +85,10 @@ public class ServerMgr {
 		/** 서버 소켓 생성 */
 		makeServerSocket();
 		
+		/** Blocking Queue */
+		BlockingQueueMgr queueMgr = BlockingQueueMgr.getInstance();
+		queueMgr.coreStart();
+		
 		/**
 		 * 클라이언트로 부터의 연결을 기다림<br>
 		 * <code>waitForClient()</code> slow system call
@@ -136,20 +142,18 @@ public class ServerMgr {
 			Node sendNode;
 			Node recvNode;
 			BlockingQueueMgr queueMgr = BlockingQueueMgr.getInstance();
+			BlockingQueue<BlockingQueueNode> waitingQueue = queueMgr.getWaitingQueue();
 			MainFrame ui = UIMgr.getInstance().getMainFrame();
 			
 			/** Recv */
 			if((recvNode = conToClient.nodeRead()) != null){
 				
 				BlockingQueueNode bnode = (BlockingQueueNode)recvNode;
-				
-				
-				
+			
 				while(true) {
 					try {
 						ui.removeServerTableNode(bnode.getClientName());
 						ui.setServerTableNode("대기열검색중", 
-											bnode.getIdx() == null ? "" : bnode.getIdx()+"", 
 											bnode.getClientName(), 
 											bnode.getOptionText(), 
 											bnode.getTotalPeerCount()+"", 
@@ -157,12 +161,15 @@ public class ServerMgr {
 											bnode.getCurPeerCount()+"",
 											bnode.getParentText() == null ? "" : bnode.getParentText());
 						
-						queueMgr.insert(bnode);
-						sendNode = bnode.getQueue().poll(30, TimeUnit.SECONDS);
+						waitingQueue.put(bnode);								//	waiting queue에 삽입
+						sendNode = bnode.getQueue().poll(30, TimeUnit.SECONDS);	// 노드가 원하는 조건을 만족(피어를 모두 채움)할 때 까지 poll
+						
 						if(sendNode == null) {
+							// Time out!
 							ui.setServerStatus("조건변경중", bnode.getClientName());
 							bnode.setLoosenNode();
 							bnode.getQueue().clear();
+							queueMgr.removeNode(bnode);
 							continue;
 						}
 						

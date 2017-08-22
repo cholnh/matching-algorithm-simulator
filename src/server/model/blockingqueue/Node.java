@@ -25,6 +25,8 @@ public class Node implements Serializable {
 	protected Integer minusError = 0;
 	protected Integer plusError = 0;
 	
+	protected String[] repOption;
+	
 	public Node(String clientName, Integer totalPeerCount, Integer...args) {
 		this.clientName = clientName;
 		this.totalPeerCount = totalPeerCount;
@@ -69,9 +71,13 @@ public class Node implements Serializable {
 		}
 		return text;
 	}
+	public void setPeerClear() {
+		peer.clear();
+	}
 	
 	protected void setOpt(Integer...args) {
-		final String[] CATEGORY = {"Red", "Orange", "Yellow", "Grean", "Blue", "Navy", "Purple"};
+		//final String[] CATEGORY = {"Red", "Orange", "Yellow", "Grean", "Blue", "Navy", "Purple"};
+		final String[] CATEGORY = {"빨", "주", "노", "초", "파", "남", "보"};
 
 		if((categoryIndex = args[0]) < 0 || categoryIndex > CATEGORY.length-1) {
 			// error
@@ -93,21 +99,37 @@ public class Node implements Serializable {
 			//log("setOpt args error");
 			return;
 		}
-			
-		if((minusError = categoryIndex - minusError) < 0 || minusError > categoryIndex) {
+		Integer tmpMin = 0;
+		Integer tmpMax = 0;
+		if(minusError > 0 && minusError < categoryIndex) {
+			tmpMin = categoryIndex - minusError;
+		} else {
+			tmpMin = 0;
+		}
+		/*
+		if((tmpMin = categoryIndex - minusError) < 0 || minusError > categoryIndex) {
 			// warning
 			//log("setOpt warning - Set minusError-value to 0");
-			minusError = 0;
+			tmpMin = 0;
 		}
+		*/
+		
+		if(plusError > 0 && plusError + categoryIndex < CATEGORY.length) {
+			tmpMax = categoryIndex + plusError;
+		} else {
+			tmpMax = CATEGORY.length - 1;
+		}
+		/*
 		if((plusError = categoryIndex + plusError) >= CATEGORY.length || plusError < categoryIndex) {
 			// warning
 			//log("setOpt warning - Set plusError-value to " + (CATEGORY.length-1));
 			plusError = CATEGORY.length-1;
 		}
+		*/
+		//System.out.println(tmpMin + " - " + tmpMax);
+		this.option = new String[tmpMax-tmpMin+1];
 		
-		this.option = new String[plusError-minusError+1];
-		
-		for(int i=minusError, j=0; i<plusError+1; i++,j++) {
+		for(int i=tmpMin, j=0; i<tmpMax+1; i++,j++) {
 			this.option[j] = CATEGORY[i];
 		}
 	}
@@ -120,7 +142,7 @@ public class Node implements Serializable {
 			if(i != option.length - 1)
 				text += " ";
 		}
-		text += ")\tPeer [";
+		text += ")\tPeer : " + totalPeerCount + " [";
 		
 		if(peer.size() == 0) 
 			text += "no peer";
