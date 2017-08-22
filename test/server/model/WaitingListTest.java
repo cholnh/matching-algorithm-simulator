@@ -8,6 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.junit.Test;
 
 import server.control.log.LogMgr;
 import server.model.blockingqueue.BlockingQueueMgr;
@@ -125,7 +126,8 @@ public class WaitingListTest {
 		
 	}
 	
-	private void insertTest() {
+	@Test
+	public void insertTest() {
 		for(int i=0; i<50; i++) {
 			insert(getRandomNode(i));
 		}
@@ -134,7 +136,8 @@ public class WaitingListTest {
 			System.out.println(node.toString());
 	}
 	
-	private void containTest() {
+	@Test
+	public void containTest() {
 		BlockingQueueNode node = new BlockingQueueNode("client1", 3, 1);
 		try {
 			waitingQueue.put(node);
@@ -144,7 +147,8 @@ public class WaitingListTest {
 		System.out.println(isContain(node));
 	}
 	
-	private void threadTest() {
+	@Test
+	public void threadTest() {
 		System.out.println("start");
 		coreThread.start();
 		try {
@@ -156,7 +160,8 @@ public class WaitingListTest {
 		System.out.println("done");
 	}
 	
-	private void setOptTest() {
+	@Test
+	public void setOptTest() {
 		BlockingQueueNode node = new BlockingQueueNode("client1", 3, 3);
 		System.out.println(node);
 		System.out.println(node.setLoosenNode());
