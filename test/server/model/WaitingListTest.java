@@ -52,29 +52,35 @@ public class WaitingListTest {
 				
 				@Override
 				public void run() {
-					BlockingQueueMgr queueMgr = BlockingQueueMgr.getInstance();
-					BlockingQueue<BlockingQueueNode> waitingQueue = queueMgr.getWaitingQueue();
+					BlockingQueueMgr blockingQueue = BlockingQueueMgr.getInstance();
+					Node sendNode;
 					
-					try {
-						while(true) {
-							waitingQueue.put(node);
-							Node recv = node.getQueue().poll(10, TimeUnit.SECONDS);
-							System.out.println("poll] " + node.getClientName() + " 결과 : "+recv);
-							System.out.println("queue 내부");
-							System.out.println(waitingQueue);
-							if(recv == null) {
-								// Time out!
-								queueMgr.timeOut(node);
-								continue;
-							}
-							System.out.println(node.getClientName()+"] " + test.teamPrint(recv));
+					while(true) {
+						blockingQueue.put(node);
 							
+						if((sendNode = node.waitComplete(30, TimeUnit.SECONDS))  != null) {
+							/** Send */
+							System.out.println(node.getClientName()+"] " + test.teamPrint(sendNode));
 							break;
 						}
-						
-					} catch (InterruptedException e) {
-						e.printStackTrace();
 					}
+					/*
+					while(true) {
+						waitingQueue.put(node);
+						Node recv = node.getQueue().poll(10, TimeUnit.SECONDS);
+						System.out.println("poll] " + node.getClientName() + " 결과 : "+recv);
+						System.out.println("queue 내부");
+						System.out.println(waitingQueue);
+						if(recv == null) {
+							// Time out!
+							queueMgr.timeOut(node);
+							continue;
+						}
+						System.out.println(node.getClientName()+"] " + test.teamPrint(recv));
+						
+						break;
+					}
+					*/
 				}
 			}).start();
 		}

@@ -17,7 +17,7 @@ public class Node implements Serializable {
 
 	/** Field */
 	protected String clientName;
-	protected volatile List<BlockingQueueNode> peer;	// synchronizedList 
+	protected volatile List<BlockingQueueNode> peer;
 	protected volatile Integer totalPeerCount = 0;
 	
 	protected String[] option;
@@ -33,7 +33,6 @@ public class Node implements Serializable {
 		this.peer = Collections.synchronizedList(new ArrayList<BlockingQueueNode>());
 		this.setOpt(args);
 	}
-	
 
 	public String getClientName() {
 		return clientName;
@@ -60,7 +59,11 @@ public class Node implements Serializable {
 			if(i != option.length - 1)
 				text += " ";
 		}
-		text += " 대표 [";
+		return text;
+	}
+	public String getRepText() {
+		String text = "";
+		text += " [대표 : ";
 		for(int i=0; i<repOption.length; i++) {
 			text += repOption[i];
 			if(i != repOption.length - 1)
@@ -72,9 +75,13 @@ public class Node implements Serializable {
 	public String getPeerText() {
 		String text = "";
 		for(int i=0; i<peer.size(); i++) {
-			text += peer.get(i);
+			BlockingQueueNode node = peer.get(i);
+			text += node.clientName;
+			text += "(";
+			text += node.getOptionText();
+			text += ")";
 			if(i != peer.size() - 1)
-				text += " ";
+				text += ", ";
 		}
 		return text;
 	}
@@ -83,19 +90,17 @@ public class Node implements Serializable {
 	}
 	
 	protected void setOpt(Integer...args) {
-		//final String[] CATEGORY = {"Red", "Orange", "Yellow", "Grean", "Blue", "Navy", "Purple"};
+		//final String[] CATEGORY = {"Red", "Orange", "Yellow", "Green", "Blue", "Navy", "Purple"};
 		final String[] CATEGORY = {"빨", "주", "노", "초", "파", "남", "보"};
 
 		if((categoryIndex = args[0]) < 0 || categoryIndex > CATEGORY.length-1) {
-			// error
-			//log("setOpt args error");
 			return;
 		}
 		
 		if(args.length == 1) {
-			this.option = new String[1];
-			this.option[0] = CATEGORY[categoryIndex];
-			this.repOption = this.option;
+			option = new String[1];
+			option[0] = CATEGORY[categoryIndex];
+			repOption = option;
 			return;
 		}
 		else if (args.length == 3) {
@@ -103,44 +108,31 @@ public class Node implements Serializable {
 			plusError = args[2];
 		}
 		else {
-			// error
-			//log("setOpt args error");
 			return;
 		}
+		
 		Integer tmpMin = 0;
 		Integer tmpMax = 0;
-		if(minusError > 0 && minusError < categoryIndex) {
+		
+		/* 최소값 설정 */
+		if(minusError > 0 && minusError < categoryIndex) 
 			tmpMin = categoryIndex - minusError;
-		} else {
+		else 
 			tmpMin = 0;
-		}
-		/*
-		if((tmpMin = categoryIndex - minusError) < 0 || minusError > categoryIndex) {
-			// warning
-			//log("setOpt warning - Set minusError-value to 0");
-			tmpMin = 0;
-		}
-		*/
 		
-		if(plusError > 0 && plusError + categoryIndex < CATEGORY.length) {
+		/* 최대값 설정 */
+		if(plusError > 0 && plusError + categoryIndex < CATEGORY.length) 
 			tmpMax = categoryIndex + plusError;
-		} else {
+		else 
 			tmpMax = CATEGORY.length - 1;
-		}
-		/*
-		if((plusError = categoryIndex + plusError) >= CATEGORY.length || plusError < categoryIndex) {
-			// warning
-			//log("setOpt warning - Set plusError-value to " + (CATEGORY.length-1));
-			plusError = CATEGORY.length-1;
-		}
-		*/
-		//System.out.println(tmpMin + " - " + tmpMax);
-		this.option = new String[tmpMax-tmpMin+1];
 		
-		for(int i=tmpMin, j=0; i<tmpMax+1; i++,j++) {
-			this.option[j] = CATEGORY[i];
-		}
-		this.repOption = this.option;
+		/* 최소, 최대값에 따른 option 설정 */
+		option = new String[tmpMax-tmpMin+1];
+		for(int i=tmpMin, j=0; i<tmpMax+1; i++,j++)
+			option[j] = CATEGORY[i];
+		
+		/* 대표 option 설정 */
+		repOption = option;
 	}
 	
 	@Override

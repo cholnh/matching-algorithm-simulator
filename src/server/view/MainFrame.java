@@ -1,5 +1,7 @@
 package server.view;
-import org.apache.log4j.Logger;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -13,8 +15,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import server.control.log.LogMgr;
 import server.control.manager.UIMgr;
+import server.model.blockingqueue.BlockingQueueNode;
 
 /**
  * MainFrame
@@ -30,8 +32,7 @@ public class MainFrame {
 		private static final MainFrame INSTANCE = new MainFrame();
 	}
 	
-	private MainFrame() {
-	}
+	private MainFrame() {}
 	
 	/**
 	 * MainFrame INSTANCE 반환
@@ -42,32 +43,14 @@ public class MainFrame {
 		return Singleton.INSTANCE;
 	}
 	
-	/** 로그 */
-	static Logger logger = LogMgr.getInstance("MainFrame");
-	
 	protected Shell shell;
 	private Table table;
 	private Table table_1;
 	private Label sl;
 	private Label cl;
+	private Button serverButton;
+	private Button clientButton;
 	
-	/**
-	 * 
-	 */
-	public static void main(String...args) {
-		try {
-			MainFrame main = new MainFrame();
-			main.createContents();
-			main.open();
-			
-		} catch (Exception e) {
-			e.printStackTrace(); 
-		}
-	}
-	
-	/**
-	 * Open the window.
-	 */
 	public void open() {
 		Display display = Display.getDefault();
 		//createContents();
@@ -92,69 +75,57 @@ public class MainFrame {
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(0, 0, 1584, 861);
 		
+		/* Server Table */
 		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
 		table.setTouchEnabled(true);
 		table.setHeaderVisible(true);
 		table.setBounds(10, 38, 1564, 451);
 		
-		TableColumn tblclmnStatus_1 = new TableColumn(table, SWT.CENTER);
-		tblclmnStatus_1.setWidth(103);
-		tblclmnStatus_1.setText("Status");
+		TableColumn[] columns = new TableColumn[8];
+		for(int i=0; i<columns.length; i++) 
+			columns[i] = new TableColumn(table, SWT.CENTER);
+			
+		columns[0].setWidth(103);
+		columns[1].setWidth(100);
+		columns[2].setWidth(353);
+		columns[3].setWidth(102);
+		columns[4].setWidth(624);
+		columns[5].setWidth(94);
+		columns[6].setWidth(83);
+		columns[7].setWidth(100);
 		
-		TableColumn tblclmnNewColumn = new TableColumn(table, SWT.CENTER);
-		tblclmnNewColumn.setWidth(100);
-		tblclmnNewColumn.setText("Name");
+		columns[0].setText("Status");
+		columns[1].setText("Name");
+		columns[2].setText("Option");
+		columns[3].setText("Total Peer Count");
+		columns[4].setText("Peer");
+		columns[5].setText("Current Count");
+		columns[6].setText("Parent");
+		columns[7].setText("Remarks");
 		
-		TableColumn tblclmnNewColumn_1 = new TableColumn(table, SWT.CENTER);
-		tblclmnNewColumn_1.setWidth(353);
-		tblclmnNewColumn_1.setText("Option");
-		
-		TableColumn tblclmnNewColumn_2 = new TableColumn(table, SWT.CENTER);
-		tblclmnNewColumn_2.setText("Total Peer Count");
-		tblclmnNewColumn_2.setWidth(102);
-		
-		TableColumn tblclmnNewColumn_3 = new TableColumn(table, SWT.CENTER);
-		tblclmnNewColumn_3.setWidth(624);
-		tblclmnNewColumn_3.setText("Peer");
-		
-		TableColumn tblclmnTime = new TableColumn(table, SWT.CENTER);
-		tblclmnTime.setWidth(94);
-		tblclmnTime.setText("Current Count");
-		
-		TableColumn tblclmnNewColumn_4 = new TableColumn(table, SWT.CENTER);
-		tblclmnNewColumn_4.setWidth(83);
-		tblclmnNewColumn_4.setText("Parent");
-		
-		TableColumn tblclmnEtc = new TableColumn(table, SWT.CENTER);
-		tblclmnEtc.setWidth(100);
-		tblclmnEtc.setText("Remarks");
-		
+		/* Client Table */
 		table_1 = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
 		table_1.setTouchEnabled(true);
 		table_1.setHeaderVisible(true);
 		table_1.setBounds(10, 525, 1564, 326);
 		
-		TableColumn tblclmnStatus = new TableColumn(table_1, SWT.CENTER);
-		tblclmnStatus.setWidth(103);
-		tblclmnStatus.setText("Status");
+		TableColumn[] columns_1 = new TableColumn[5];
+		for(int i=0; i<columns_1.length; i++) 
+			columns_1[i] = new TableColumn(table_1, SWT.CENTER);
 		
-		TableColumn tableColumn_1 = new TableColumn(table_1, SWT.CENTER);
-		tableColumn_1.setWidth(76);
-		tableColumn_1.setText("Name");
+		columns_1[0].setWidth(103);
+		columns_1[1].setWidth(76);
+		columns_1[2].setWidth(252);
+		columns_1[3].setWidth(102);
+		columns_1[4].setWidth(1026);
 		
-		TableColumn tableColumn_2 = new TableColumn(table_1, SWT.CENTER);
-		tableColumn_2.setWidth(252);
-		tableColumn_2.setText("Option");
+		columns_1[0].setText("Status");
+		columns_1[1].setText("Name");
+		columns_1[2].setText("Option");
+		columns_1[3].setText("Total Peer Count");
+		columns_1[4].setText("Team");
 		
-		TableColumn tblclmnTotalPeerCount = new TableColumn(table_1, SWT.CENTER);
-		tblclmnTotalPeerCount.setWidth(102);
-		tblclmnTotalPeerCount.setText("Total Peer Count");
-		
-		
-		TableColumn tblclmnNewColumn_5 = new TableColumn(table_1, SWT.CENTER);
-		tblclmnNewColumn_5.setWidth(1026);
-		tblclmnNewColumn_5.setText("Team");
-		
+		/* Count Label */
 		Label lblServer = new Label(composite, SWT.NONE);
 		lblServer.setFont(SWTResourceManager.getFont("맑은 고딕", 14, SWT.NORMAL));
 		lblServer.setBounds(10, 10, 58, 22);
@@ -167,7 +138,7 @@ public class MainFrame {
 		
 		sl = new Label(composite, SWT.NONE);
 		sl.setFont(SWTResourceManager.getFont("맑은 고딕", 13, SWT.NORMAL));
-		sl.setText("0");
+		sl.setText("OFF");
 		sl.setBounds(72, 10, 39, 22);
 		
 		cl = new Label(composite, SWT.NONE);
@@ -175,37 +146,81 @@ public class MainFrame {
 		cl.setText("0");
 		cl.setBounds(72, 497, 39, 22);
 		
-		Button button = new Button(composite, SWT.NONE);
-		button.addSelectionListener(new SelectionAdapter() {
+		serverButton = new Button(composite, SWT.NONE);
+		serverButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				
 				UIMgr.getInstance().serverStart();
+				serverButton.setEnabled(false);
+				clientButton.setEnabled(true);
 			}
 		});
-		button.setText("start");
-		button.setBounds(117, 7, 76, 25);
+		serverButton.setText("start");
+		serverButton.setBounds(117, 7, 76, 25);
 		
-		Button button_1 = new Button(composite, SWT.NONE);
-		button_1.addSelectionListener(new SelectionAdapter() {
+		clientButton = new Button(composite, SWT.NONE);
+		clientButton.setEnabled(false);
+		clientButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				UIMgr.getInstance().clientStart();
+				InputDialog input = new InputDialog(shell, "", "INPUT Client Count ", "10", new Validator());
+				if (input.open() == Window.OK) {
+					Integer clientCnt = 0;
+					clientCnt = Integer.parseInt(input.getValue());
+					setCl(clientCnt);
+					UIMgr.getInstance().clientStart(clientCnt);
+					clientButton.setEnabled(false);
+				}
 			}
 		});
-		button_1.setText("start");
-		button_1.setBounds(117, 495, 76, 25);
+		clientButton.setText("start");
+		clientButton.setBounds(117, 495, 76, 25);
 
 		return shell;
 	}
 	
+	class Validator implements IInputValidator {
+
+		public String isValid(String newText) {
+			try {
+				Integer.parseInt(newText);
+			} catch (NumberFormatException e) {
+				return "Only Number";
+			}
+			
+			return null;
+		}
+	}
+	
 	// server
-	//	0		1		2			3			4		5		6
-	// status	name	option		total		peer	cur		parent
+	//	0		1		2		3		4		5		6
+	// status	name	option	total	peer	cur		parent
 	
 	// client
-	//	0		1		2		3			4
-	// status	name	option	total		team
+	//	0		1		2		3		4
+	// status	name	option	total	team
 	
+	public synchronized void setServerTableNode(String status, BlockingQueueNode node) {
+		table.getDisplay().asyncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				if (!table.isDisposed()) {
+					TableItem tableItem = new TableItem(table, SWT.NONE);
+					tableItem.setText(0, status);
+					tableItem.setText(1, node.getClientName());
+					tableItem.setText(2, node.getOptionText() + node.getRepText());
+					tableItem.setText(3, node.getTotalPeerCount()+"");
+					tableItem.setText(4, node.getPeerText());
+					tableItem.setText(5, node.getCurPeerCount()+"");
+					tableItem.setText(6, node.getParentText());
+					
+					table.getParent().layout();
+				}
+			}
+		});
+	}
 	public synchronized void setServerTableNode(String status, String name, String option, String total, String peer, String cur, String parent) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
@@ -266,7 +281,6 @@ public class MainFrame {
 			@Override
 			public void run() {
 				if (!table_1.isDisposed()) {
-					System.out.println("**************등록중 " + name + " // " + team);
 					TableItem item = getClientTableItem(name);
 					if(item != null)
 						item.setText(4, team);
@@ -299,7 +313,7 @@ public class MainFrame {
 			public void run() {
 				if (!table.isDisposed()) {
 					TableItem item = getServerTableItem(name);
-					if(item != null)
+					if(item != null) 
 						item.setText(4, peer);
 					
 					table.getParent().layout();
@@ -307,7 +321,21 @@ public class MainFrame {
 			}
 		});
 	}
-
+	public synchronized void setServerOption(String opt, String name) {
+		table.getDisplay().asyncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				if (!table.isDisposed()) {
+					TableItem item = getServerTableItem(name);
+					if(item != null)
+						item.setText(2, opt);
+					
+					table.getParent().layout();
+				}
+			}
+		});
+	}
 	public synchronized void setServerCur(String cur, String name) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
@@ -374,28 +402,6 @@ public class MainFrame {
 		});
 	}
 	
-	public synchronized void setExamining(String name, boolean tf) {
-		table.getDisplay().asyncExec(new Runnable() {
-			
-			@Override
-			public void run() {
-				if (!table.isDisposed()) {
-					TableItem[] items = table.getItems();
-					for(int i=0; i<items.length; i++) {
-						if(items[i].getText(1).equals(name)) {
-							if(tf)
-								items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
-							else
-								items[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-						}
-					}
-					table.getParent().layout();
-				}
-				
-			}
-		});
-	}
-	
 	public TableItem getServerTableItem(String name) {
 		TableItem[] items = table.getItems();
 		for(TableItem item : items) {
@@ -453,50 +459,12 @@ public class MainFrame {
 					TableItem[] items = table.getItems();
 					for(int i=0; i<items.length; i++) {
 						if(items[i].getText(1).equals(name)) {
-							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + name);
-							items[i].setText(1, "삭제");
 							table.remove(i);
 							return;
 						}
 					}
 				}
-				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + name + " 삭제 실패");
 			}
 		});
 	}
-	/*
-	public synchronized void setServerTablePeer(String mas, String peer, String peerOpt) {
-		table.getDisplay().asyncExec(new Runnable() {
-			
-			@Override
-			public void run() {
-				if (!table.isDisposed()) {
-					TableItem[] items = table.getItems();
-					String tmp = "";
-					int i, j = 0;
-					
-					for(i=0; i<items.length; i++) {
-						if(items[i].getText(1).equals(peer)) {
-							tmp += items[i].getText(4);
-							break;
-						}
-					}
-					
-					items = table.getItems();
-					for(j = 0; j<items.length; j++) {
-						String nm = items[j].getText(1);
-						if(nm.equals(mas)) {
-							items[j].setText(4, items[j].getText(4) + " " + peer + " (" + peerOpt + ") " + tmp);
-							//System.out.println(nm + "에 "+ peer +"등록 : [" + items[j].getText(4) + "]");
-							table.remove(i);
-							//System.out.println(nm + "제거");
-							break;
-						}
-					}
-					table.getParent().layout();
-				}
-			}
-		});
-	}
-	*/
 }

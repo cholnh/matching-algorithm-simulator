@@ -9,7 +9,6 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -68,7 +67,10 @@ public class ServerMgr {
 	/** 서버 소켓 포트 (기본 : 5000) */
 	private static Integer PORT = 5000;
 
-	private ServerMgr() {/*Singleton*/}
+	/** UI */
+	private MainFrame ui = UIMgr.getInstance().getMainFrame();
+	
+	private ServerMgr() {/* Singleton */}
 
 	public static void main(String...args) {
 		ServerMgr.getInstance().start();
@@ -81,21 +83,17 @@ public class ServerMgr {
 	public void start() {
 		Socket conn;
 
-		/** 서버 소켓 생성 */
+		/* 서버 소켓 생성 */
 		makeServerSocket();
 		
-		/** Blocking Queue */
+		/* Blocking Queue */
 		BlockingQueueMgr queueMgr = BlockingQueueMgr.getInstance();
 		queueMgr.coreStart();
 		
-		/**
-		 * 클라이언트로 부터의 연결을 기다림<br>
-		 * <code>waitForClient()</code> slow system call
-		 */
+		/* slow system call */
 		while((conn = waitForClient()) != null) {
-			/**
-			 * 스레드풀에 <code>ServerHandler</code> 워커스레드 추가
-			 */
+			
+			/* 스레드풀에 <code>ServerHandler</code> 워커스레드 추가 */
 			mExecutorService.execute(getServerHandler(conn));
 		}
 		close();
@@ -105,10 +103,10 @@ public class ServerMgr {
 	public void close() {
 		try {
 			
-			/** 서버 소켓 종료 */
+			/* 서버 소켓 종료 */
 			serverSoc.close();
 			
-			/** 스레드 풀 종료 */
+			/* 스레드 풀 종료 */
 			mExecutorService.shutdown();
 		} catch (IOException e) {
 			log("serverSoc close Error", e);
@@ -120,8 +118,7 @@ public class ServerMgr {
 	}
 
 	/**
-	 * 서버 스트링 핸들러<br>
-	 * 
+	 * 서버 핸들러<br>
 	 * @author Choi
 	 */
 	class ServerHandler extends Thread {
@@ -140,55 +137,50 @@ public class ServerMgr {
 		public void run() {
 			Node sendNode;
 			Node recvNode;
-			BlockingQueueMgr queueMgr = BlockingQueueMgr.getInstance();
-			BlockingQueue<BlockingQueueNode> waitingQueue = queueMgr.getWaitingQueue();
-			MainFrame ui = UIMgr.getInstance().getMainFrame();
+			BlockingQueueMgr blockingQueue = BlockingQueueMgr.getInstance();
 			
-			/** Recv */
+			/* Receive */
 			if((recvNode = conToClient.nodeRead()) != null){
 				
+				/* DownCasting */
 				BlockingQueueNode bnode = (BlockingQueueNode)recvNode;
 			
 				while(true) {
-					try {
-						//ui.removeServerTableNode(bnode.getClientName());
-						ui.setServerTableNode("대기열검색중", 
-											bnode.getClientName(), 
-											bnode.getOptionText(), 
-											bnode.getTotalPeerCount()+"", 
-											bnode.getPeerText(), 
-											bnode.getCurPeerCount()+"",
-											bnode.getParentText());
+					
+					/* Node 삽입 */
+					blockingQueue.put(bnode);
+					
+					/* 결과 대기 */
+					if((sendNode = bnode.waitComplete(30, TimeUnit.SECONDS))  != null) {
 						
-						waitingQueue.put(bnode);								//	waiting queue에 삽입
-						sendNode = bnode.getQueue().poll(30, TimeUnit.SECONDS);	// 노드가 원하는 조건을 만족(피어를 모두 채움)할 때 까지 poll
-						
-						if(sendNode == null) {
-							// Time out!
-							ui.setServerStatus("조건변경중", bnode.getClientName());
-							queueMgr.timeOut(bnode);
-							continue;
-						}
-						
-						/** Send */
+						/* Send */
 						conToClient.nodeWrite(sendNode);
-						//ui.setServerStatus("매칭완료", sendNode.getClientName());
 						break;
-					} catch(InterruptedException ie) {
-						// Time out handle 이곳 아님
 					}
+					
+					blockingQueue.remove(bnode);
 				}
 			}
-			
-			/** 작업이 끝났으므로 서버에 연결되어있는 클라이언트 수를 수정  */
-			synchronized (lock) {
-				clientCount--;
-			}
-			ui.setSl(clientCount);
-			log("exit " + socket.getInetAddress().getHostAddress() + "\n[clients : " + clientCount + "명]");
+			clientMinus(socket);
 		}
 	}
-
+	
+	private void clientPlus(Socket clientSock) {
+		synchronized (lock) {
+			clientCount++;
+		}
+		ui.setSl(clientCount);
+		log("connect to " + clientSock.getInetAddress().getHostAddress() + " [clients : " + clientCount + "명]");
+	}
+	
+	private void clientMinus(Socket clientSock) {
+		synchronized (lock) {
+			clientCount--;
+		}
+		ui.setSl(clientCount);
+		log("exit " + clientSock.getInetAddress().getHostAddress() + "\n[clients : " + clientCount + "명]");
+	}
+	
 	/**
 	 * 연결 스트림 핸들러<br>
 	 * 클라이언트와 연결된 소켓의 <code>InputStream</code>과 <code>OutputStream</code>을 통하여<br>
@@ -261,10 +253,14 @@ public class ServerMgr {
 			}
 		}
 	}
+	
+	public boolean isOn() {
+		return serverSoc == null ? false : serverSoc.isBound();
+	}
 
 	/** 서버에 접속된 클라이언트 수 */
 	private volatile Integer clientCount = 0;
-	Lock lock = new ReentrantLock();
+	private Lock lock = new ReentrantLock();
 	/**
 	 * 클라이언트 연결 대기<br>
 	 * 접속을 시도하는 클라이언트와의 소켓연결을 하고  해당 소켓 <code>serverSoc</code>을 받아 반환
@@ -276,12 +272,7 @@ public class ServerMgr {
 		log("waitting for Client...");
 		try {
 			Socket conn = serverSoc.accept();
-			MainFrame ui = UIMgr.getInstance().getMainFrame();
-			synchronized (lock) {
-				clientCount++;
-			}
-			ui.setSl(clientCount);
-			log("connect to " + conn.getInetAddress().getHostAddress() + " [clients : " + clientCount + "명]");
+			clientPlus(conn);
 			return conn;
 		} catch (IOException e) {
 			log("Accept Error", e);

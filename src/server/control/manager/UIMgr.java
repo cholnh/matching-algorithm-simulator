@@ -40,8 +40,6 @@ public enum UIMgr {
 		if(mainFrame == null)
 			init();
 		mainFrame.open();
-		
-		
 	}
 	
 	/**
@@ -51,18 +49,15 @@ public enum UIMgr {
 	public static void main(String[] args) {
 		try {
 			UIMgr.getInstance().open();
-			
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}
 	}
 	
 	public void init() {
-		
-		/** main frame */
+		/* main frame */
 		mainFrame = MainFrame.getInstance();
 		mainShell = mainFrame.createContents();
-		
 	}
 
 	public void serverStart() {
@@ -75,9 +70,7 @@ public enum UIMgr {
 		}).start();
 	}
 	
-	private static final Integer HOW_MANY_CLIENT = 10;
-	
-	public void clientStart() {
+	public void clientStart(Integer HOW_MANY_CLIENT) {
 		ClientMgr clientMgr = new ClientMgr();
 		for (int i = 0; i < HOW_MANY_CLIENT; i++) {
 			mainFrame.setCl(HOW_MANY_CLIENT - i - 1);
@@ -85,21 +78,4 @@ public enum UIMgr {
 			new Thread(clientMgr.getClientHandler(i)).start();
 		}
 	}
-	
-	class ClientHandler implements Runnable {
-		ClientMgr clientMgr;
-		int i;
-		
-		public ClientHandler (ClientMgr clientMgr, int i) {
-			this.clientMgr = clientMgr;
-			this.i = i;
-		}
-		
-		@Override
-		public void run() {
-			clientMgr.getClientHandler(i);
-			
-		}
-	}
-	
 }

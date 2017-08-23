@@ -10,6 +10,8 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
@@ -44,7 +46,9 @@ public class ClientMgr {
 	private final Integer DELAY_MINIMUM = 1;
 	private final Integer DELAY_MAXIMUM = 10;
 	
-	private volatile Integer clientCount = 0;
+	/** UI */
+	private MainFrame ui = UIMgr.getInstance().getMainFrame();
+	
 	public ClientMgr() {}
 
 	public ClientMgr(final String SERVERIP, final Integer SERVERPORT) {
@@ -57,32 +61,25 @@ public class ClientMgr {
 	 * 클라이언트 핸들러<br>
 	 * 클라이언트 운영에 대한 전반적인 흐름을 정의하는 부분
 	 */
-	public void start() {
-		/** 서버로 소켓 연결 요청 */
-		//Socket socket = connectToServer();
-
-		/**
-		 * 연결 핸들러 생성 <br>
-		 * <code>ConnectionToServer</code> (연결 핸들러)는 여러 stream 처리를 수행
-		 * 
-		 * @see ClientMgr.ConnectionToServer
-		 */
-		//ConnectionToServer conn = getConnectionToServer(socket);
-		
-		
-
+	private static final Integer HOW_MANY_CLIENT = 10;
+	public void start() {		
+		for (int i = 0; i < HOW_MANY_CLIENT; i++) {
+			ui.setCl(HOW_MANY_CLIENT - i - 1);
+			
+			new Thread(getClientHandler(i)).start();
+		}
 	}
 	
 	/**
 	 * 클라이언트 핸들러<br>
-	 * 
 	 * @author Choi
 	 */
 	class ClientHandler implements Runnable {
 		
+		private Integer clientIdx;
+		
 		/** 서버 연결 스트림 핸들러 */
 		private ConnectionToServer conToServer;
-		private Integer clientIdx;
 		
 		ClientHandler(Integer clientIdx) {
 			this.clientIdx = clientIdx;
@@ -96,60 +93,80 @@ public class ClientMgr {
 			Node sendNode;
 			Node recvNode;
 			
-			/** Node 생성 */
-			Random rand = new Random();
-			int opt = rand.nextInt(8);
-			if(opt == 7)
-				sendNode = new BlockingQueueNode("Client"+clientIdx, 
-						rand.nextInt(5), rand.nextInt(7), rand.nextInt(3), rand.nextInt(3));
-			else 
-				sendNode = new BlockingQueueNode("Client"+clientIdx, 
-						rand.nextInt(5), opt);
+			/* Node 생성 */
+			sendNode = getRandomNode(clientIdx);
 			
-			MainFrame ui = UIMgr.getInstance().getMainFrame();
+			/* 대기 */
+			waitRandom(sendNode);
 			
-			/** 대기 */
-			Integer num = new Random().nextInt(DELAY_MAXIMUM)+DELAY_MINIMUM;
-			ui.setClientTableNode("전송대기중 "+num+"secs...", sendNode.getClientName(), sendNode.getOptionText(), ""+sendNode.getTotalPeerCount(), "");
-			
-			System.out.print("wait "+ num + "sec...");
-			try {
-				Thread.sleep(num*1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("done");
-			
+			/* Send */
 			ui.setClientStatus("전송중", sendNode.getClientName());
-			/** Send */
 			conToServer.nodeWrite(sendNode);
 			ui.setClientStatus("매칭대기중", sendNode.getClientName());
 			
-			/** Recv */
+			/* Receive */
 			if ((recvNode = conToServer.nodeRead()) != null) {
-				ui.setClientStatus("매칭완료", sendNode.getClientName());
-				
-				List<BlockingQueueNode> peer = recvNode.getPeer();
-				String text = recvNode.getClientName()+" Team 완성 [ ";
-				
-				text += recvNode.getClientName();
-				if(peer.size() > 0)
-					text += " - ";
-				for(int i=0; i<peer.size(); i++) {
-					BlockingQueueNode pnode = peer.get(i);
-					text += pnode.getClientName();
-					if(i != peer.size()-1)
-						text += " - ";
-				}
-				text += " ]";
-				
-				ui.setClientTeam(text, sendNode.getClientName());
-				ui.setCl(++clientCount);
-				log(text);
+				completeHadler(sendNode, recvNode);
+				clientPlus();
 			}
 		}
 	}
+	
+	private void completeHadler(Node sendNode, Node recvNode) {
+		ui.setClientStatus("매칭완료", sendNode.getClientName());
+		
+		List<BlockingQueueNode> peer = recvNode.getPeer();
+		String text = recvNode.getClientName()+" Team 완성 [ ";
+		
+		text += recvNode.getClientName();
+		if(peer.size() > 0)
+			text += " - ";
+		for(int i=0; i<peer.size(); i++) {
+			BlockingQueueNode pnode = peer.get(i);
+			text += pnode.getClientName();
+			if(i != peer.size()-1)
+				text += " - ";
+		}
+		text += " ]";
+		
+		ui.setClientTeam(text, sendNode.getClientName());
+		log(text);
+	}
+	
+	private void waitRandom(Node sendNode) {
+		Integer num = new Random().nextInt(DELAY_MAXIMUM)+DELAY_MINIMUM;
+		ui.setClientTableNode("전송대기중 "+num+"secs...", sendNode.getClientName(), sendNode.getOptionText(), ""+sendNode.getTotalPeerCount(), "");
+		
+		try {
+			Thread.sleep(num*1000);
+		} catch (InterruptedException e) {
+			log("ClientHandler wait InterruptedException", e);
+		}
+	}
+	
+	private Node getRandomNode(Integer clientIdx) {
+		Node sendNode;
+		Random rand = new Random();
+		int opt = rand.nextInt(8);
+		if(opt == 7)
+			sendNode = new BlockingQueueNode("Client"+clientIdx, 
+					rand.nextInt(5), rand.nextInt(7), rand.nextInt(3), rand.nextInt(3));
+		else 
+			sendNode = new BlockingQueueNode("Client"+clientIdx, 
+					rand.nextInt(5), opt);
+		return sendNode;
+	}
+	
+	/** 클라이언트 수 */
+	private volatile Integer clientCount = 0;
+	private Lock lock = new ReentrantLock();
+	private void clientPlus() {
+		synchronized (lock) {
+			clientCount++;
+		}
+		ui.setCl(clientCount);
+	}
+	
 	public ClientHandler getClientHandler(Integer Idx) {
 		return new ClientHandler(Idx);
 	}

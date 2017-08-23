@@ -1,8 +1,11 @@
 package server.model.blockingqueue;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+
+import server.control.manager.UIMgr;
+import server.view.MainFrame;
 
 /**
  * Node
@@ -17,7 +20,6 @@ public class BlockingQueueNode extends Node {
 	/** Field */
 	private BlockingQueue<Node> queue;
 	private BlockingQueueNode parent;
-	
 	
 	public BlockingQueueNode(String clientName, Integer totalPeerCount, Integer...args) {
 		super(clientName, totalPeerCount, args);
@@ -38,54 +40,17 @@ public class BlockingQueueNode extends Node {
 	}
 	
 	public boolean isSimilarNode(BlockingQueueNode node) {
-		/*
-		// this option
-		if(!isContain(this.option, node.getOption())) return false;
+		/* Matching Condition */
 		
-		// this peer option
-		for(int i=0; i<peer.size(); i++) {
-			BlockingQueueNode pnode = peer.get(i);
-			if(!isContain(pnode.option, node.option)) return false;
-		}
-		return true;
-		*/
+		if(!isSameTCP(node)) return false;
 		if(isContain(this.repOption, node.getOption()))
 			return true;
-		return false;
-			
-		
-	}
-	
-	public boolean isSimilarPeer(BlockingQueueNode node) {
-		// this option
-		if(!isContain(this.option, node.getOption())) return false;
-		
-		// this peer option
-		for(int i=0; i<peer.size(); i++) {
-			BlockingQueueNode pnode = peer.get(i);
-			if(!isContain(pnode.option, node.option)) return false;
-		}
-		
-		// node peer option
-		List<BlockingQueueNode> plist = node.getPeer();
-		if(!plist.isEmpty()) {
-			for(int i=0; i<plist.size(); i++) {
-				// this option
-				BlockingQueueNode pnode = plist.get(i);
-				if(!isContain(this.option, pnode.option)) return false;
-				
-				// this peer option
-				for(int j=0; j<peer.size(); j++) {
-					BlockingQueueNode thisPnode = peer.get(j);
-					if(!isContain(thisPnode.option, pnode.option)) return false;
-				}
-			}
-			
-		}
-		return true;
+		return false;		
 	}
 	
 	private String[] capOpt(BlockingQueueNode node) {
+		/* 중복되는 Option(교집합) 반환 */
+		
 		ArrayList<String> capList = new ArrayList<String>();
 		for(String thisOpt : this.option)
 			for(String nodeOpt : node.getOption())
@@ -100,6 +65,8 @@ public class BlockingQueueNode extends Node {
 	}
 	
 	private boolean isContain(String[] strArr1, String[] strArr2) {
+		/* 인자로 받은 두 스트링 배열의 값 중 중복되는 것이 하나라도 있으면 true반환, 그 외 false반환 */
+		
 		for(String thisOpt : strArr1) {
 			for(String nodeOpt : strArr2) {
 				if(thisOpt.equals(nodeOpt)) {
@@ -110,76 +77,63 @@ public class BlockingQueueNode extends Node {
 		return false;
 	}
 	
-	
-	public boolean isPeerFull() {
-		return peer.size() >= totalPeerCount;
+	private boolean isSameTCP(BlockingQueueNode node) {
+		/* Total Peer Count */
+		
+		return ((int)totalPeerCount == (int)node.getTotalPeerCount());
 	}
 	
+	public Node waitComplete(long timeout, TimeUnit unit) {
+		MainFrame ui = UIMgr.getInstance().getMainFrame();
+		Node completedNode = null;
+		try {
+			/* 노드가 원하는 조건을 만족(피어를 모두 채움)할 때 까지 poll */
+			completedNode = queue.poll(timeout, unit);
+		} catch (InterruptedException e) {
+		}	
+		
+		/* blocking queue의 poll TIMEOUT -> null이 반환됨 */
+		if(completedNode == null) {
+			ui.setServerStatus("조건변경중", clientName);
+			setLoosenNode();
+		}
+		return completedNode;
+	}
+	
+	public boolean isPeerFull() {
+		/* 피어가 꽉 찼는지에 대한 여부 반환 = 매칭 성공여부 */
+		
+		return peer.size() >= totalPeerCount;
+	}
 
 	public boolean removePeerNode(BlockingQueueNode node) {
-		return peer.remove(node);
-		/*
-		for(BlockingQueueNode pnode : peer) {
-			if(pnode.clientName.equals(node.getClientName())) {
-				peer.remove(pnode);
-				return true;
-			}
-		}
+		/* 현재 피어에서 node 제거 후 결과 성공여부 반환*/
 		
-		return false;
-		 */
+		return peer.remove(node);
 	}
 	
 	public void setPeerNode(BlockingQueueNode node) {
-		// try node into -> this`s peer
+		/* peer에 node 삽입 */
 		
 		peer.add(node);
-		super.repOption = capOpt(node);
 		node.setParent(this);
-		System.out.println("^^^^^^^^^ peer 등록 ] " + node.getClientName() + " >> " + peer);
-		/*
-		if(isPeerFull()) {
-			return false;
-		}
-		Integer needCnt = getNeedPeerCount();
-		if(needCnt > 0) {
-			peer.add(node);			// 노드 등록
-			node.setParent(this);	// 노드의 부모로 등록
-			System.out.println(clientName + "] " + node.clientName + "가 " + clientName + " 에 등록됨");
-			// node`s peer
-			List<BlockingQueueNode> plist;
-			while(!(plist = node.getPeer()).isEmpty() && (needCnt = getNeedPeerCount()) > 0) {
-				for(int i=0; i<plist.size(); i++) {
-					BlockingQueueNode pnode = plist.get(i);
-					if(pnode != null) {
-						peer.add(pnode);			// 노드 등록
-						pnode.setParent(this);		// 노드의 부모로 등록
-						break;
-					}
-				}
-			}
-			System.out.println(clientName+ "] 최종결과\t" + toString());
-			plist.clear();
-			return true;
-		}
-		return false;
-		*/
+		
+		/* 교집합을 구하여 대표 Option으로 설정 */
+		repOption = capOpt(node);
 	}
 	
 	public BlockingQueueNode setLoosenNode() {
+		/* 주어진 Option에 대한 제한을 느슨하게 하는 커스텀 핸들러 */
 		
-		if(plusError + minusError >= 6) { // 7 is CATEGORY length
+		if(plusError + minusError >= 6) {
+			/* 총 피어 수를 줄임 */
 			totalPeerCount--;
-			System.out.println(clientName + "] loosen\tplusError : "+plusError+" minusError : " + minusError + " totalPeerCount : "+totalPeerCount);
-			
 		}
 		else {
+			/* Option 제한을 넓힘 */
 			minusError++;
 			plusError++;
-			System.out.println(clientName + "] loosen\tplusError : "+plusError+" minusError : " + minusError + " totalPeerCount : "+totalPeerCount);
-			
 			super.setOpt(categoryIndex, minusError, plusError);
-			
 		}
 		return this;
 	}
