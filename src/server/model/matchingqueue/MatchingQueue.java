@@ -52,11 +52,11 @@ public class MatchingQueue <T extends Matcher> {
 					/* block - queue */
 					T node = waitingQueue.take();
 					log(node.hashCode() + "] 입장");
+					
 					/* block - lock */
 					lock(node);
 					
 					try {
-						/* UI */
 						locking(node);
 						
 						/* CORE LOGIC */
