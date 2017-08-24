@@ -221,6 +221,7 @@ public class MainFrame {
 			}
 		});
 	}
+
 	public synchronized void setServerTableNode(String status, String name, String option, String total, String peer, String cur, String parent) {
 		table.getDisplay().asyncExec(new Runnable() {
 			
