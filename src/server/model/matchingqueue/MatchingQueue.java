@@ -10,10 +10,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.log4j.Logger;
-
-import server.control.log.LogMgr;
-
 /**
  * MatchingQueue
  * 
@@ -21,37 +17,75 @@ import server.control.log.LogMgr;
  * @author Choi
  */
 public class MatchingQueue <T extends Matcher> {
-
-	/** 로그 */
-	static Logger logger = LogMgr.getInstance("MatchingQueue");
-	static void log(final String text) {
-		logger.info(text);
-	}
-	static void log(final String text, final Exception e) {
-		log(text);
-		e.printStackTrace();
-	}
 	
-	private final Lock lock = new ReentrantLock();
-	private final Thread coreThread = new Thread(new CoreHandler());
+	/**
+	 * The Core Thread for core-logic.
+	 */
+	private final Thread core = new Thread(new CoreHandler());
+	
+	/**
+	 * BlockingQueue is used for implement Producer–consumer pattern.
+	 * The waitingQueue wait for node to come in from outside.
+	 * The node what taken from waitingQueue is handled at examine in CoreHandler.
+	 */
 	private final BlockingQueue<T> waitingQueue = new LinkedBlockingQueue<T>();
+	
+	/**
+	 * BlockingQueue is used for implement Producer–consumer pattern.
+	 * The resultQueue wait for node what completed core-logic.
+	 * The completed Node is passed to the outside via take().
+	 */
 	private final BlockingQueue<T> resultQueue = new LinkedBlockingQueue<T>();
+	
+	/**
+	 * The waitingList manage waiting nodes.
+	 * The list is used to search in the examine().
+	 */
 	private final List<T> waitingList = Collections.synchronizedList(new ArrayList<T>());
+	
+	/**
+	 * Each node have waitingTime.
+	 * The timer schedule timeout handler (specified task for execution).
+	 * timeout handler is executed after the time specified in waitingTime.
+	 */
 	private volatile long waitingTime;
-
+	
+	/**
+	 * The lock for synchronize core-logic and remove-logic.
+	 */
+	private final Lock lock = new ReentrantLock();
+	
+	/**
+	 * Set waitingTime.
+	 * @param millis for set the node's timeout-time
+	 */
 	public void setWaitingTime(long millis) {this.waitingTime = millis;}
 	
+	/**
+	 * Creates a new MatchingQueue and start core Thread immediately.
+	 * Default waitingTime is 30secs.
+	 */
 	public MatchingQueue () {
 		waitingTime = 30000;
-		coreThread.start();
+		core.start();
 	}
 	
-	public MatchingQueue (long millis) {
-		
-		this.waitingTime = millis;
-		coreThread.start();
+	/**
+	 * Creates a new MatchingQueue and start core Thread immediately.
+	 * @param waitingTime for set the node's timeout-time.
+	 */
+	public MatchingQueue (long waitingTime) {
+		this.waitingTime = waitingTime;
+		core.start();
 	}
 	
+	/**
+	 * CoreHandler
+	 * core logic handler
+	 * 
+	 * @version 1.0 [2017. 8. 25.]
+	 * @author Choi
+	 */
 	class CoreHandler implements Runnable {
 
 		@Override
@@ -60,7 +94,6 @@ public class MatchingQueue <T extends Matcher> {
 				try {
 					/* block - queue */
 					T node = waitingQueue.take();
-					log(node.hashCode() + "] 대기열 등록");
 					
 					/* block - lock */
 					lock.lock();
@@ -73,7 +106,7 @@ public class MatchingQueue <T extends Matcher> {
 						lock.unlock();
 					}
 				} catch (InterruptedException e) {
-					log("CORE STOP", e);
+					e.printStackTrace();
 					break;
 				}	
 			}
@@ -87,7 +120,6 @@ public class MatchingQueue <T extends Matcher> {
 			
 			@Override @SuppressWarnings("unchecked")
 			public void run() {
-				log(node.hashCode() + "] 재등록");
 				/* 제거 후 재등록 */
 				remove(node);
 				put((T) node.loosen());
@@ -109,20 +141,17 @@ public class MatchingQueue <T extends Matcher> {
 				if(wnode.isPeerFull()) {
 					/* 등록결과 : 매칭 성공 */
 					waitingList.remove(wnode);
-					log(wnode.hashCode() + "] 완성");
 					complete(wnode);
 					return;
 				} else {
 					/* 등록 결과 : 다른 peer로 들어가서 대기 */
 					waitingList.remove(node);
-					log(node.hashCode() + "] peer로 등록 - " + wnode.hashCode());
 					return;
 				}
 			}
 		}
 		/* 탐색 실패 -> 신규등록 */
 		insert(node);
-		log(node.hashCode() + "] 신규 등록");
 	}
 	
 	public void remove(T node) {
@@ -188,7 +217,7 @@ public class MatchingQueue <T extends Matcher> {
 		try {
 			resultQueue.put(node);
 		} catch (InterruptedException e) {
-			log("complete InterruptedException", e);
+			e.printStackTrace();
 		}
 	}
 	
@@ -197,7 +226,7 @@ public class MatchingQueue <T extends Matcher> {
 		try {
 			waitingQueue.put(node);
 		} catch (InterruptedException e) {
-			log("put InterruptedException", e);
+			e.printStackTrace();
 		}
 	}
 	
@@ -206,7 +235,7 @@ public class MatchingQueue <T extends Matcher> {
 		try {
 			return resultQueue.take();
 		} catch (InterruptedException e) {
-			log("take InterruptedException", e);
+			e.printStackTrace();
 			return null;
 		}
 	}
