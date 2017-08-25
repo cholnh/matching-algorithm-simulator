@@ -32,13 +32,23 @@ public class MatchingQueue <T extends Matcher> {
 		e.printStackTrace();
 	}
 	
-	private Lock lock = new ReentrantLock();
+	private final Lock lock = new ReentrantLock();
 	private final Thread coreThread = new Thread(new CoreHandler());
 	private final BlockingQueue<T> waitingQueue = new LinkedBlockingQueue<T>();
 	private final BlockingQueue<T> resultQueue = new LinkedBlockingQueue<T>();
 	private final List<T> waitingList = Collections.synchronizedList(new ArrayList<T>());
+	private volatile long waitingTime;
+
+	public void setWaitingTime(long millis) {this.waitingTime = millis;}
 	
 	public MatchingQueue () {
+		waitingTime = 30000;
+		coreThread.start();
+	}
+	
+	public MatchingQueue (long millis) {
+		
+		this.waitingTime = millis;
 		coreThread.start();
 	}
 	
@@ -48,27 +58,22 @@ public class MatchingQueue <T extends Matcher> {
 		public void run() {
 			while(true) {
 				try {
-					
 					/* block - queue */
 					T node = waitingQueue.take();
-					log(node.hashCode() + "] 입장");
+					log(node.hashCode() + "] 대기열 등록");
 					
 					/* block - lock */
-					lock(node);
+					lock.lock();
 					
 					try {
-						locking(node);
-						
 						/* CORE LOGIC */
-						timer(node, 30000);
+						timer(node, waitingTime);
 						examine(node);
-						
 					} finally {
-						unlock(node);
+						lock.unlock();
 					}
-	
 				} catch (InterruptedException e) {
-					//log("CORE STOP", e);
+					log("CORE STOP", e);
 					break;
 				}	
 			}
@@ -117,13 +122,12 @@ public class MatchingQueue <T extends Matcher> {
 		}
 		/* 탐색 실패 -> 신규등록 */
 		insert(node);
-		log(node.hashCode() + "] new");
+		log(node.hashCode() + "] 신규 등록");
 	}
 	
 	public void remove(T node) {
-		lock(node);
+		lock.lock();
 		try {
-			locking(node);
 			waitingQueue.remove(node);	// 큐에 대기중이라면 제거
 			waitingList.remove(node);	// 리스트에 있다면 제거
 			
@@ -154,7 +158,7 @@ public class MatchingQueue <T extends Matcher> {
 			
 			node.setPeerClear();
 		} finally {
-			unlock(node);
+			lock.unlock();
 		}		
 	}
 	
@@ -178,41 +182,32 @@ public class MatchingQueue <T extends Matcher> {
 	private void complete(T node) {
 		/* timer 종료 */
 		node.getTimer().cancel();
-		for(Matcher pnode : node.getPeer()) {
+		for(Matcher pnode : node.getPeer()) 
 			pnode.getTimer().cancel();
-		}
 		
 		try {
 			resultQueue.put(node);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			log("complete InterruptedException", e);
 		}
 	}
 	
 	public void put(T node) {
+		/* External put */
 		try {
 			waitingQueue.put(node);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			log("put InterruptedException", e);
 		}
 	}
 	
 	public T take() {
+		/* External take */
 		try {
 			return resultQueue.take();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			log("take InterruptedException", e);
 			return null;
 		}
 	}
-	
-	private void lock(T node) {
-		lock.lock();
-	}
-	private void locking(T node) {
-	}
-	private void unlock(T node) {
-		lock.unlock();
-	}
-
 }

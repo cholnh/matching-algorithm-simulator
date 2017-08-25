@@ -23,39 +23,13 @@ public class Matcher {
 		peer = Collections.synchronizedList(new ArrayList<Matcher>());
 	}
 	
-	public Timer getTimer() {
-		return timer;
-	}
-	public void setTimer(Timer timer) {
-		this.timer = timer;
-	}
-	public void setParent(Matcher parent) {
-		this.parent = parent;
-	}
-	public Matcher getParent() {
-		return parent;
-	}
-	public Integer getTotalPeerCount() {
-		return totalPeerCount;
-	}
-	public void setTotalPeerCount(Integer totalPeerCount) {
-		this.totalPeerCount = totalPeerCount;
-	}
-	public List<Matcher> getPeer() {
-		return peer;
-	}
-	public void setPeer(List<Matcher> peer) {
-		this.peer = peer;
-	}
-	public Integer getCurPeerCount() {
-		return peer.size();
-	}
-	public Integer getNeedPeerCount() {
-		return totalPeerCount - peer.size();
-	}
-	public void setPeerClear() {
-		peer.clear();
-	}
+	public Timer getTimer() {return timer;}
+	public void setTimer(Timer timer) {this.timer = timer;}
+	public Matcher getParent() {return parent;}
+	public void setParent(Matcher parent) {this.parent = parent;}
+	public Integer getTotalPeerCount() {return totalPeerCount;}
+	public List<Matcher> getPeer() {return peer;}
+	public Integer getNeedPeerCount() {return totalPeerCount - peer.size();}
 	
 	public boolean isPeerFull() {
 		/* 피어가 꽉 찼는지에 대한 여부 반환 = 매칭 성공여부 */
@@ -71,6 +45,10 @@ public class Matcher {
 		/* peer에 node 삽입 */
 		peer.add(node);
 		node.setParent(this);
+	}
+	
+	public void setPeerClear() {
+		peer.clear();
 	}
 	
 	public boolean match(Matcher node) {
