@@ -72,7 +72,8 @@ public class MatchingQueue <T extends Matcher> {
 	
 	/**
 	 * Creates a new MatchingQueue and start core Thread immediately.
-	 * @param waitingTime for set the node's timeout-time.
+	 * 
+	 * @param waitingTime	for set the node's timeout-time.
 	 */
 	public MatchingQueue (long waitingTime) {
 		this.waitingTime = waitingTime;
@@ -90,6 +91,8 @@ public class MatchingQueue <T extends Matcher> {
 
 		@Override
 		public void run() {
+			
+			/* MatchingQueue Core loop */
 			while(true) {
 				try {
 					/* block - queue */
@@ -99,9 +102,12 @@ public class MatchingQueue <T extends Matcher> {
 					lock.lock();
 					
 					try {
-						/* CORE LOGIC */
+						/* set timer to each node */
 						timer(node, waitingTime);
+						
+						/* search logic */
 						examine(node);
+						
 					} finally {
 						lock.unlock();
 					}
@@ -113,20 +119,35 @@ public class MatchingQueue <T extends Matcher> {
 		}
 	}
 	
+	/**
+	 * Set the scheduled timer.
+	 * The timer schedule timeout handler (specified task for execution).
+	 * timeout handler is executed after the time specified in delay.
+	 * 
+	 * @param node	node to be scheduled	
+	 * @param delay	delay in milliseconds before task is to be executed.
+	 */
 	private void timer(T node, long delay) {
 		Timer timer = new Timer();
 		node.setTimer(timer);
 		timer.schedule(new TimerTask() {
 			
+			/**
+			 * Timeout handler
+			 */
 			@Override @SuppressWarnings("unchecked")
 			public void run() {
-				/* 제거 후 재등록 */
 				remove(node);
 				put((T) node.loosen());
 			}
 		}, delay);
 	}
 	
+	/**
+	 * Branch the node via match-logic.
+	 * 
+	 * @param node	node to be matched
+	 */
 	private void examine(T node) {
 		if(node.getNeedPeerCount() == 0) {
 			complete(node);
@@ -135,52 +156,56 @@ public class MatchingQueue <T extends Matcher> {
 		
 		for(T wnode : waitingList) {
 			if(node.match(wnode)) {
-				/* peer 등록 */
+				/* Node into wnode's peer */
 				wnode.setPeerNode(node);
 				
 				if(wnode.isPeerFull()) {
-					/* 등록결과 : 매칭 성공 */
+					/* Match complete */
 					waitingList.remove(wnode);
 					complete(wnode);
 					return;
 				} else {
-					/* 등록 결과 : 다른 peer로 들어가서 대기 */
 					waitingList.remove(node);
 					return;
 				}
 			}
 		}
-		/* 탐색 실패 -> 신규등록 */
+		/* New registration in list */
 		insert(node);
 	}
 	
+	/**
+	 * Remove the node from this queue and list.
+	 * and handle registered peer node or parent node.
+	 * 
+	 * @param node	node to be removed from this queue, list if present.
+	 */
 	public void remove(T node) {
 		lock.lock();
 		try {
-			waitingQueue.remove(node);	// 큐에 대기중이라면 제거
-			waitingList.remove(node);	// 리스트에 있다면 제거
+			waitingQueue.remove(node);	// Remove if it in waitingQueue
+			waitingList.remove(node);	// Remove if it in waitingList
 			
-			/* 어딘가의 peer로 속해있다면 제거 */
+			/* If node is registered as a peer somewhere, remove it */
 			Matcher parentNode = node.getParent();
 			if(parentNode != null) {
 				parentNode.removePeerNode(node);
 				node.setParent(null);
 			}
 			
-			/* peer 정리 */
+			/* If the peer is registered, it re-makes the peers */
 			List<Matcher> plist = node.getPeer();
 			T firstNode = null;
 			for(int i=0; i<plist.size(); i++) {
 				@SuppressWarnings("unchecked")
 				T pnode = (T) plist.get(i);
 				if(i==0) {
-					/* 첫 번째 peer */
 					firstNode = pnode;
 					firstNode.setParent(null);
 					insert(firstNode);
 				}
 				else {
-					/* 나머지 peer -> 첫 번째peer에 등록시킴 */
+					/* remaining peers register on the first */
 					firstNode.setPeerNode(pnode);
 				}
 			}
@@ -191,11 +216,16 @@ public class MatchingQueue <T extends Matcher> {
 		}		
 	}
 	
+	/**
+	 * Insert in this waitingList at index just below the next higher node.
+	 * 
+	 * @param node	node to be inserted in this waitingList.
+	 */
 	private void insert(T node) {
 		Integer idx = waitingList.size();
 		Integer nNeedPeerCnt = node.getNeedPeerCount();
 		
-		/* 자신보다 한 단계 높은 노드의 바로 아래 인덱스 */
+		/* below the next higher node */
 		for(int i=0; i<waitingList.size(); i++) {
 			T wnode = waitingList.get(i);
 			Integer wNeedPeerCnt = wnode.getNeedPeerCount();
@@ -208,21 +238,33 @@ public class MatchingQueue <T extends Matcher> {
 		waitingList.add(idx, node);
 	}	
 	
+	/**
+	 * Completed node handler
+	 * 
+	 * @param node	the matched node completely
+	 */
 	private void complete(T node) {
-		/* timer 종료 */
+		/* timer cancel */
 		node.getTimer().cancel();
 		for(Matcher pnode : node.getPeer()) 
 			pnode.getTimer().cancel();
 		
 		try {
+			/* put only node (node's peers are not transmitted) */
 			resultQueue.put(node);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Receive incoming node from outside.
+	 * and put the received node into the waitingQueue.
+	 * 
+	 * @param node	node to be matched
+	 */
 	public void put(T node) {
-		/* External put */
+		/* put from outside */
 		try {
 			waitingQueue.put(node);
 		} catch (InterruptedException e) {
@@ -230,8 +272,13 @@ public class MatchingQueue <T extends Matcher> {
 		}
 	}
 	
+	/**
+	 * Send result node to outside.
+	 * 
+	 * @return	the matched node
+	 */
 	public T take() {
-		/* External take */
+		/* take to outside */
 		try {
 			return resultQueue.take();
 		} catch (InterruptedException e) {
