@@ -12,6 +12,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * MatchingQueue
+ * This class uses a producer-consumer pattern with blocking queues.
+ * A basic scheme is a type that takes the specified node to be matched
+ * and returns a result of the matching algorithm overridden at Matcher class.
+ * it Uses lock to solve the synchronize problem, but this can cause a convoy effect.
  * 
  * @version 1.0 [2017. 8. 25.]
  * @author Choi
@@ -52,6 +56,7 @@ public class MatchingQueue <T extends Matcher> {
 	
 	/**
 	 * The lock for synchronize core-logic and remove-logic.
+	 * it is non-preemptive then convoy effect may occur.
 	 */
 	private final Lock lock = new ReentrantLock();
 	
@@ -275,7 +280,7 @@ public class MatchingQueue <T extends Matcher> {
 	/**
 	 * Send result node to outside.
 	 * 
-	 * @return	the matched node
+	 * @return	The matched node
 	 */
 	public T take() {
 		/* take to outside */

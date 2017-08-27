@@ -7,54 +7,167 @@ import java.util.Timer;
 
 /**
  * Matcher
+ * This class is the default scheme to be applied to the matching queue.
+ * When extends this, it must be overridden the match(), loosen() method.
+ * The starvation problems can occur depending on the overridden method content.
  * 
  * @version 1.0 [2017. 8. 25.]
  * @author Choi
  */
 public class Matcher {
 	
+	/**
+	 * If matcher is registered as a peer for another, it registers for parent.
+	 */
 	protected Matcher parent;
+	
+	/**
+	 * The matcher initially registers the maximum of peers it will match. 
+	 */
 	protected Integer totalPeerCount;
+	
+	/**
+	 * Matched matchers are stored. 
+	 */
 	protected List<Matcher> peer;
+	
+	/**
+	 * The scheduled timer defined in the matching queue.
+	 */
 	protected Timer timer;
 	
+	/**
+	 * Creates a new Matcher.
+	 * 
+	 * @param totalPeerCount	The total number of nodes to match. 
+	 */
 	public Matcher(Integer totalPeerCount) {
 		this.totalPeerCount = totalPeerCount;
 		peer = Collections.synchronizedList(new ArrayList<Matcher>());
 	}
 	
-	public Timer getTimer() {return timer;}
-	public void setTimer(Timer timer) {this.timer = timer;}
-	public Matcher getParent() {return parent;}
-	public void setParent(Matcher parent) {this.parent = parent;}
-	public Integer getTotalPeerCount() {return totalPeerCount;}
-	public List<Matcher> getPeer() {return peer;}
-	public Integer getNeedPeerCount() {return totalPeerCount - peer.size();}
+	/**
+	 * Timer getter
+	 * 
+	 * @return	The instance of timer .
+	 */
+	public Timer getTimer() {
+		return timer;
+	}
 	
+	/**
+	 * Timer setter
+	 * 
+	 * @param timer	The timer to be set.
+	 */
+	public void setTimer(Timer timer) {
+		this.timer = timer;
+	}
+	
+	/**
+	 * Parent getter
+	 * 
+	 * @return	The instance of parent node.
+	 */
+	public Matcher getParent() {
+		return parent;
+	}
+	
+	/**
+	 * Parent setter
+	 * 
+	 * @param parent	The node to be registered as a parent.
+	 */
+	public void setParent(Matcher parent) {
+		this.parent = parent;
+	}
+	
+	/**
+	 * Total peer count getter
+	 * 
+	 * @return	The total number of peers.
+	 */
+	public Integer getTotalPeerCount() {
+		return totalPeerCount;
+	}
+	
+	/**
+	 * Peer list getter
+	 * 
+	 * @return	The list of peers.
+	 */
+	public List<Matcher> getPeer() {
+		return peer;
+	}
+	
+	/**
+	 * Computes and returns the number of peers it currently needs.
+	 * 
+	 * @return	The number of peers currently required.
+	 */
+	public Integer getNeedPeerCount() {
+		return totalPeerCount - peer.size();
+	}
+	
+	/**
+	 * Returns whether the peer is full.
+	 * That is, it indicates whether or not the matching is successful.
+	 * 
+	 * @return	true if the number of peers currently registered more than or equal the total number of peers.
+	 */
 	public boolean isPeerFull() {
-		/* 피어가 꽉 찼는지에 대한 여부 반환 = 매칭 성공여부 */
 		return peer.size() >= totalPeerCount;
 	}
 
+	/**
+	 * Removes the node from the list of peers.
+	 * 
+	 * @param node	node to be removed from this list, if present.
+	 * @return		true if this list contained the specified node.
+	 */
 	public boolean removePeerNode(Matcher node) {
-		/* 현재 피어에서 node 제거 후 결과 성공여부 반환*/
 		return peer.remove(node);
 	}
 	
+	/**
+	 * Appends the specified node to the end of this peers.
+	 * Then registers the parent of this node.
+	 * 
+	 * @param node	node to be appended to this peer list
+	 */
 	public void setPeerNode(Matcher node) {
 		/* peer에 node 삽입 */
 		peer.add(node);
 		node.setParent(this);
 	}
 	
+	/**
+	 * Removes all of the nodes from this peer list.
+	 */
 	public void setPeerClear() {
 		peer.clear();
 	}
 	
+	/**
+	 * Override this method to describe the match algorithm here.
+	 * A basic scheme is a type that takes the specified node to be matched
+	 * and returns a result of the matching algorithm.
+	 * 
+	 * @param node	node to be matched with this.
+	 * @return		returns a result satisfying the matching condition.
+	 */
 	public boolean match(Matcher node) {
 		return false;
 	}
 	
+	/**
+	 * Override this method to solve the starvation problem of matching algorithm here.
+	 * The matching algorithm can cause starvation problem, 
+	 * which is the phenomenon of node isolation for a long time if matching fails.
+	 * Therefore, it needs to solve the starvation problem through the loosen method.
+	 * 
+	 * @return	returns itself with condition changed.
+	 */
 	public Matcher loosen() {
 		return this;
 	}
