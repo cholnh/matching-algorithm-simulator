@@ -22,7 +22,7 @@ public class Matcher {
 	protected Matcher parent;
 	
 	/**
-	 * The matcher initially registers the maximum of peers it will match. 
+	 * The matcher initially registers the maximum of peers it will match.
 	 */
 	protected Integer totalPeerCount;
 	
