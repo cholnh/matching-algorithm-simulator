@@ -1,0 +1,74 @@
+[INFO] ServerTest 2017-08-29 14:27:24
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:27:24
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:27:28
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:29:10
+	read Error
+[INFO] ServerTest 2017-08-29 14:29:44
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:29:44
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:29:47
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:29:47
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (빨 주 노)	Peer : 0 [no peer]"
+[INFO] ServerTest 2017-08-29 14:29:47
+	write Error
+[INFO] ServerTest 2017-08-29 14:31:56
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:31:56
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:31:59
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:31:59
+	read Error
+[INFO] ServerTest 2017-08-29 14:34:37
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:34:37
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:34:40
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:34:40
+	read Error
+[INFO] ServerTest 2017-08-29 14:35:14
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:35:14
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:35:17
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:35:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (초 파 남)	Peer : 2 [no peer]"
+[INFO] ServerTest 2017-08-29 14:35:21
+	write Error
+[INFO] ServerTest 2017-08-29 14:40:36
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:40:36
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:40:49
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:40:49
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (보)	Peer : 4 [no peer]"
+[INFO] ServerTest 2017-08-29 14:40:56
+	write Error
+[INFO] ServerTest 2017-08-29 14:44:46
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:44:46
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:44:49
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:44:49
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (빨)	Peer : 1 [no peer]"
+[INFO] ServerTest 2017-08-29 14:44:53
+	write Error
+[INFO] ServerTest 2017-08-29 14:50:34
+	서버 생성
+[INFO] ServerTest 2017-08-29 14:50:34
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:50:38
+	waitting for Client...
+[INFO] ServerTest 2017-08-29 14:50:38
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (주 노 초)	Peer : 1 [no peer]"
+[INFO] ServerTest 2017-08-29 14:50:41
+	send to 127.0.0.1 (Thread-2)	 msg : "Client (빨 주 노 초 파 남)	Peer : 0 [no peer]"

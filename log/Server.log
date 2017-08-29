@@ -1,1523 +1,493 @@
-[INFO] Server 2017-08-25 11:01:18
+[INFO] Server 2017-08-29 13:38:39
 	서버 생성
-[INFO] Server 2017-08-25 11:01:18
+[INFO] Server 2017-08-29 13:38:39
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 13:40:14
+	서버 생성
+[INFO] Server 2017-08-29 13:40:14
+	waitting for Client...
+[INFO] Server 2017-08-29 13:42:59
+	서버 생성
+[INFO] Server 2017-08-29 13:42:59
+	waitting for Client...
+[INFO] Server 2017-08-29 13:44:38
+	서버 생성
+[INFO] Server 2017-08-29 13:44:38
+	waitting for Client...
+[INFO] Server 2017-08-29 13:45:57
+	서버 생성
+[INFO] Server 2017-08-29 13:45:57
+	waitting for Client...
+[INFO] Server 2017-08-29 13:46:22
+	서버 생성
+[INFO] Server 2017-08-29 13:46:22
+	waitting for Client...
+[INFO] Server 2017-08-29 13:47:30
+	서버 생성
+[INFO] Server 2017-08-29 13:47:30
+	waitting for Client...
+[INFO] Server 2017-08-29 13:47:33
 	connect to 127.0.0.1 [clients : 1명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 13:47:33
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 13:47:33
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client (보)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:12
+	서버 생성
+[INFO] Server 2017-08-29 14:53:12
+	waitting for Client...
+[INFO] Server 2017-08-29 14:53:15
+	connect to 127.0.0.1 [clients : 1명]
+[INFO] Server 2017-08-29 14:53:15
+	waitting for Client...
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 2명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 3명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 4명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 5명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 6명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 7명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 8명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 9명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 10명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 11명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 12명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 13명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 14명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 15명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 16명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 17명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 18명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 19명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 20명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 21명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 22명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 23명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 24명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 25명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 26명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 27명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 28명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 29명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 30명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 31명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 32명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 33명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 34명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 35명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 36명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 37명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 38명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 39명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 40명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 41명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 42명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 43명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 44명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 45명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 46명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 47명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 48명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 49명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	connect to 127.0.0.1 [clients : 50명]
-[INFO] Server 2017-08-25 11:01:22
+[INFO] Server 2017-08-29 14:53:15
 	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 51명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 52명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 53명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 54명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 55명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 56명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 57명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 58명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 59명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 60명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 61명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 62명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 63명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 64명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 65명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 66명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 67명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 68명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 69명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 70명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 71명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 72명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 73명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 74명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 75명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 76명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 77명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 78명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 79명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 80명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 81명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 82명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 83명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 84명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 85명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 86명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 87명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 88명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 89명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 90명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 91명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 92명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 93명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 94명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 95명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 96명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 97명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 98명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 99명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:22
-	connect to 127.0.0.1 [clients : 100명]
-[INFO] Server 2017-08-25 11:01:22
-	waitting for Client...
-[INFO] Server 2017-08-25 11:01:23
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client20 (보)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:23
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client42 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:23
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client38 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:23
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client21 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client2 (노)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client18 (빨 주 노 초 파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	send to 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client18 (빨 주 노 초 파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
+[INFO] Server 2017-08-29 14:53:16
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (파)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:16
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-31)	 msg : "Client22 (빨)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client3 (초)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-3)	 msg : "Client26 (남)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client32 (보)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
+	send to 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client32 (보)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:17
 	exit 127.0.0.1
-[clients : 99명]
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client50 (보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client35 (빨)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client32 (빨 주 노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
-	send to 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client32 (빨 주 노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:24
+[clients : 49명]
+[INFO] Server 2017-08-29 14:53:17
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-55)	 msg : "Client46 (노 초 파 남 보)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client2 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
+	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client2 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
 	exit 127.0.0.1
-[clients : 98명]
-[INFO] Server 2017-08-25 11:01:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client51 (노)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client6 (빨)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client16 (보)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client24 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	send to 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client24 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
+[clients : 48명]
+[INFO] Server 2017-08-29 14:53:18
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client35 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
+	send to 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client35 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
 	exit 127.0.0.1
-[clients : 97명]
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-60)	 msg : "Client27 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client41 (남)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client52 (남)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client9 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client12 (빨 주)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client35 (빨)	Peer : 2 [Client6 (빨) Client12 (빨 주) ]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client35 (빨)	Peer : 2 [Client6 (빨) Client12 (빨 주) ]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 47명]
+[INFO] Server 2017-08-29 14:53:18
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-5)	 msg : "Client44 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
+	send to 127.0.0.1 (ForkJoinPool-1-worker-5)	 msg : "Client44 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:18
 	exit 127.0.0.1
-[clients : 95명]
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client35 (빨)	Peer : 2 [Client6 (빨) Client12 (빨 주) ]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 46명]
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client0 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	send to 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client0 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
 	exit 127.0.0.1
-[clients : 94명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client23 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 45명]
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-22)	 msg : "Client5 (보)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client6 (파)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client10 (초)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	send to 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client3 (초)	Peer : 1 [Client10 (초) ]"
+[INFO] Server 2017-08-29 14:53:19
 	exit 127.0.0.1
-[clients : 94명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client55 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client55 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 44명]
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-60)	 msg : "Client27 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	send to 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client3 (초)	Peer : 1 [Client10 (초) ]"
+[INFO] Server 2017-08-29 14:53:19
 	exit 127.0.0.1
-[clients : 93명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client56 (빨 주 노 초 파 남 보)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client40 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-32)	 msg : "Client31 (빨)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client40 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 43명]
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client23 (노)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client25 (노)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client41 (남)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	send to 127.0.0.1 (ForkJoinPool-1-worker-60)	 msg : "Client27 (초)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
 	exit 127.0.0.1
-[clients : 92명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client45 (남)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client57 (빨)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client45 (남)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 42명]
+[INFO] Server 2017-08-29 14:53:19
+	send to 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client23 (노)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
 	exit 127.0.0.1
-[clients : 91명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client58 (보)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client16 (보)	Peer : 2 [Client56 (빨 주 노 초 파 남 보) Client58 (보) ]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 41명]
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client40 (남)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:19
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-47)	 msg : "Client38 (빨 주 노 초 파 남 보)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:20
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client16 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:20
+	send to 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client16 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:20
 	exit 127.0.0.1
-[clients : 90명]
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client16 (보)	Peer : 2 [Client56 (빨 주 노 초 파 남 보) Client58 (보) ]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 40명]
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-44)	 msg : "Client11 (노)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client14 (파)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client20 (초)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-39)	 msg : "Client30 (남)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client39 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	send to 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client39 (남)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
 	exit 127.0.0.1
-[clients : 89명]
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client60 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client59 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client16 (보)	Peer : 2 [Client56 (빨 주 노 초 파 남 보) Client58 (보) ]"
-[INFO] Server 2017-08-25 11:01:26
+[clients : 39명]
+[INFO] Server 2017-08-29 14:53:21
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-41)	 msg : "Client48 (빨 주 노 초 파 남 보)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:21
+	send to 127.0.0.1 (ForkJoinPool-1-worker-39)	 msg : "Client40 (남)	Peer : 2 [Client30 (남) Client48 (빨 주 노 초 파 남 보) ]"
+[INFO] Server 2017-08-29 14:53:21
+	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client40 (남)	Peer : 2 [Client30 (남) Client48 (빨 주 노 초 파 남 보) ]"
+[INFO] Server 2017-08-29 14:53:21
 	exit 127.0.0.1
-[clients : 88명]
-[INFO] Server 2017-08-25 11:01:27
+[clients : 37명]
+[INFO] Server 2017-08-29 14:53:21
+	exit 127.0.0.1
+[clients : 38명]
+[INFO] Server 2017-08-29 14:53:21
+	send to 127.0.0.1 (ForkJoinPool-1-worker-41)	 msg : "Client40 (남)	Peer : 2 [Client30 (남) Client48 (빨 주 노 초 파 남 보) ]"
+[INFO] Server 2017-08-29 14:53:21
+	exit 127.0.0.1
+[clients : 36명]
+[INFO] Server 2017-08-29 14:53:22
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client7 (노)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:22
+	send to 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client7 (노)	Peer : 0 [no peer]"
+[INFO] Server 2017-08-29 14:53:22
+	exit 127.0.0.1
+[clients : 35명]
+[INFO] Server 2017-08-29 14:53:22
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client36 (노)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client9 (주)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client12 (노 초 파 남)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client17 (빨 주 노 초 파 남 보)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client18 (주 노 초)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-31)	 msg : "Client22 (빨)	Peer : 1 [Client17 (빨 주 노 초 파 남 보) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 34명]
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client22 (빨)	Peer : 1 [Client17 (빨 주 노 초 파 남 보) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 33명]
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-11)	 msg : "Client34 (주)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client24 (빨 주 노 초 파 남 보)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-34)	 msg : "Client49 (초)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client42 (초)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-48)	 msg : "Client47 (주)	Peer : 1 [no peer]"
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client20 (초)	Peer : 2 [Client24 (빨 주 노 초 파 남 보) Client42 (초) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 32명]
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client20 (초)	Peer : 2 [Client24 (빨 주 노 초 파 남 보) Client42 (초) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 31명]
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client20 (초)	Peer : 2 [Client24 (빨 주 노 초 파 남 보) Client42 (초) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 30명]
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client18 (주 노 초)	Peer : 1 [Client47 (주) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 29명]
+[INFO] Server 2017-08-29 14:53:23
+	send to 127.0.0.1 (ForkJoinPool-1-worker-48)	 msg : "Client18 (주 노 초)	Peer : 1 [Client47 (주) ]"
+[INFO] Server 2017-08-29 14:53:23
+	exit 127.0.0.1
+[clients : 28명]
+[INFO] Server 2017-08-29 14:53:24
 	receive from 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client1 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client0 (남)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client5 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client34 (파)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client39 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:28
-	send to 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client39 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:28
-	exit 127.0.0.1
-[clients : 87명]
-[INFO] Server 2017-08-25 11:01:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client62 (초)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-5)	 msg : "Client44 (보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client3 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-22)	 msg : "Client7 (노)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client9 (파)	Peer : 2 [Client60 (파) Client3 (파) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 86명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client9 (파)	Peer : 2 [Client60 (파) Client3 (파) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 85명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client64 (빨)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client9 (파)	Peer : 2 [Client60 (파) Client3 (파) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 84명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client14 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client11 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client25 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-39)	 msg : "Client30 (보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client36 (초)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-31)	 msg : "Client22 (남)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-3)	 msg : "Client26 (주)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client2 (노)	Peer : 1 [Client7 (노) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 83명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client66 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client11 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-22)	 msg : "Client2 (노)	Peer : 1 [Client7 (노) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 81명]
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 82명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client66 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 80명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client54 (빨)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client43 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client69 (초 파 남 보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client57 (빨)	Peer : 1 [Client54 (빨) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 79명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client57 (빨)	Peer : 1 [Client54 (빨) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 78명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client43 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 77명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client72 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client42 (파)	Peer : 3 [Client23 (파) Client1 (파) Client69 (초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 76명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client42 (파)	Peer : 3 [Client23 (파) Client1 (파) Client69 (초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 75명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client73 (남)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client42 (파)	Peer : 3 [Client23 (파) Client1 (파) Client69 (초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 74명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client42 (파)	Peer : 3 [Client23 (파) Client1 (파) Client69 (초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 73명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client75 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client76 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client41 (남)	Peer : 2 [Client0 (남) Client73 (남) ]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client41 (남)	Peer : 2 [Client0 (남) Client73 (남) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 71명]
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 72명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client78 (남)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client41 (남)	Peer : 2 [Client0 (남) Client73 (남) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 70명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client79 (보)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client20 (보)	Peer : 1 [Client79 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 69명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client80 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client20 (보)	Peer : 1 [Client79 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 68명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client81 (주)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client77 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client63 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client21 (보)	Peer : 3 [Client25 (보) Client76 (보) Client63 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 67명]
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client21 (보)	Peer : 3 [Client25 (보) Client76 (보) Client63 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 66명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client82 (보)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client83 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client21 (보)	Peer : 3 [Client25 (보) Client76 (보) Client63 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 65명]
-[INFO] Server 2017-08-25 11:01:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client84 (주)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client21 (보)	Peer : 3 [Client25 (보) Client76 (보) Client63 (보) ]"
-[INFO] Server 2017-08-25 11:01:29
-	exit 127.0.0.1
-[clients : 64명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client8 (초)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client36 (초)	Peer : 1 [Client8 (초) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 63명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client86 (보)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client36 (초)	Peer : 1 [Client8 (초) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 62명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client87 (파)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client34 (파)	Peer : 1 [Client87 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 61명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client88 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client34 (파)	Peer : 1 [Client87 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 60명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-53)	 msg : "Client29 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-47)	 msg : "Client37 (초)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client68 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client70 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client71 (빨 주 노 초 파 남 보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client38 (파)	Peer : 4 [Client83 (파) Client88 (파) Client68 (파) Client70 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 59명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client90 (초)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client38 (파)	Peer : 4 [Client83 (파) Client88 (파) Client68 (파) Client70 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 58명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client91 (빨 주 노 초 파 남 보)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client38 (파)	Peer : 4 [Client83 (파) Client88 (파) Client68 (파) Client70 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 57명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client38 (파)	Peer : 4 [Client83 (파) Client88 (파) Client68 (파) Client70 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 56명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client93 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client38 (파)	Peer : 4 [Client83 (파) Client88 (파) Client68 (파) Client70 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 55명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client71 (빨 주 노 초 파 남 보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 54명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client95 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client62 (초)	Peer : 2 [Client90 (초) Client91 (빨 주 노 초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 53명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client62 (초)	Peer : 2 [Client90 (초) Client91 (빨 주 노 초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 52명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client62 (초)	Peer : 2 [Client90 (초) Client91 (빨 주 노 초 파 남 보) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 51명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client92 (남 보)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client85 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client74 (파)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client96 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client97 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client86 (보)	Peer : 1 [Client92 (남 보) ]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client77 (파)	Peer : 3 [Client29 (파) Client95 (파) Client85 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 49명]
-[INFO] Server 2017-08-25 11:01:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client99 (빨)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client77 (파)	Peer : 3 [Client29 (파) Client95 (파) Client85 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 48명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-53)	 msg : "Client77 (파)	Peer : 3 [Client29 (파) Client95 (파) Client85 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 47명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client86 (보)	Peer : 1 [Client92 (남 보) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 46명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client77 (파)	Peer : 3 [Client29 (파) Client95 (파) Client85 (파) ]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 45명]
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 50명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client96 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 44명]
-[INFO] Server 2017-08-25 11:01:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client97 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:30
-	exit 127.0.0.1
-[clients : 43명]
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-44)	 msg : "Client10 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-44)	 msg : "Client10 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	exit 127.0.0.1
-[clients : 42명]
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-52)	 msg : "Client19 (빨 주 노)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client81 (주)	Peer : 2 [Client84 (주) Client19 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:31
-	exit 127.0.0.1
-[clients : 41명]
-[INFO] Server 2017-08-25 11:01:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client81 (주)	Peer : 2 [Client84 (주) Client19 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:31
-	exit 127.0.0.1
-[clients : 40명]
-[INFO] Server 2017-08-25 11:01:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-52)	 msg : "Client81 (주)	Peer : 2 [Client84 (주) Client19 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:31
-	exit 127.0.0.1
-[clients : 39명]
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-48)	 msg : "Client47 (노)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client61 (빨)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client65 (초)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client94 (노 초 파 남)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-36)	 msg : "Client4 (남)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-36)	 msg : "Client94 (노 초 파 남)	Peer : 1 [Client4 (남) ]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 38명]
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client94 (노 초 파 남)	Peer : 1 [Client4 (남) ]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 37명]
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client13 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client13 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 36명]
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client17 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (초)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client17 (빨)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 35명]
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-46)	 msg : "Client28 (초)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-11)	 msg : "Client33 (초)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-55)	 msg : "Client46 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-41)	 msg : "Client48 (남)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-55)	 msg : "Client46 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 34명]
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-34)	 msg : "Client49 (노)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client53 (노)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-22)	 msg : "Client67 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client89 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client89 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-25 11:01:32
-	exit 127.0.0.1
-[clients : 33명]
-[INFO] Server 2017-08-25 11:01:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client98 (노)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client72 (빨)	Peer : 3 [Client75 (빨) Client93 (빨) Client26 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-3)	 msg : "Client72 (빨)	Peer : 3 [Client75 (빨) Client93 (빨) Client26 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:59
-	exit 127.0.0.1
-[clients : 31명]
-[INFO] Server 2017-08-25 11:01:59
-	exit 127.0.0.1
-[clients : 32명]
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client72 (빨)	Peer : 3 [Client75 (빨) Client93 (빨) Client26 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:59
-	exit 127.0.0.1
-[clients : 30명]
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client72 (빨)	Peer : 3 [Client75 (빨) Client93 (빨) Client26 (빨 주 노) ]"
-[INFO] Server 2017-08-25 11:01:59
-	exit 127.0.0.1
-[clients : 29명]
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-11)	 msg : "Client15 (초)	Peer : 2 [Client33 (초) Client80 (초 파 남) ]"
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (초)	Peer : 2 [Client33 (초) Client80 (초 파 남) ]"
-[INFO] Server 2017-08-25 11:01:59
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 3 [Client6 (파) Client14 (파) Client1 (파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 27명]
-[INFO] Server 2017-08-25 11:01:59
-	send to 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client15 (초)	Peer : 2 [Client33 (초) Client80 (초 파 남) ]"
-[INFO] Server 2017-08-25 11:01:59
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 3 [Client6 (파) Client14 (파) Client1 (파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 26명]
-[INFO] Server 2017-08-25 11:01:59
-	exit 127.0.0.1
-[clients : 28명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client98 (노)	Peer : 4 [Client59 (빨 주 노) Client5 (빨 주 노) Client14 (빨 주 노) Client28 (노 초 파) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 25명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client98 (노)	Peer : 4 [Client59 (빨 주 노) Client5 (빨 주 노) Client14 (빨 주 노) Client28 (노 초 파) ]"
-[INFO] Server 2017-08-25 11:02:02
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 3 [Client6 (파) Client14 (파) Client1 (파) ]"
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 3 [Client6 (파) Client14 (파) Client1 (파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 24명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client98 (노)	Peer : 4 [Client59 (빨 주 노) Client5 (빨 주 노) Client14 (빨 주 노) Client28 (노 초 파) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 23명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client98 (노)	Peer : 4 [Client59 (빨 주 노) Client5 (빨 주 노) Client14 (빨 주 노) Client28 (노 초 파) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 22명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-46)	 msg : "Client98 (노)	Peer : 4 [Client59 (빨 주 노) Client5 (빨 주 노) Client14 (빨 주 노) Client28 (노 초 파) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 21명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client99 (빨 주)	Peer : 2 [Client61 (빨 주) Client53 (주 노 초) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 20명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client99 (빨 주)	Peer : 2 [Client61 (빨 주) Client53 (주 노 초) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 19명]
-[INFO] Server 2017-08-25 11:02:02
-	send to 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client99 (빨 주)	Peer : 2 [Client61 (빨 주) Client53 (주 노 초) ]"
-[INFO] Server 2017-08-25 11:02:02
-	exit 127.0.0.1
-[clients : 18명]
-[INFO] Server 2017-08-26 18:52:06
-	서버 생성
-[INFO] Server 2017-08-26 18:52:06
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 1명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 2명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 3명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 4명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 5명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 6명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 7명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 8명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 9명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 10명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 11명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 12명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 13명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 14명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 15명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 16명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 17명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 18명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 19명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 20명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 21명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 22명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 23명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 24명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 25명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 26명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 27명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 28명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 29명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 30명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 31명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 32명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 33명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 34명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 35명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 36명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 37명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 38명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 39명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 40명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 41명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 42명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 43명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 44명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 45명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 46명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 47명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 48명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 49명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:22
-	connect to 127.0.0.1 [clients : 50명]
-[INFO] Server 2017-08-26 18:52:22
-	waitting for Client...
-[INFO] Server 2017-08-26 18:52:23
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-52)	 msg : "Client19 (남)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client17 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client34 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client41 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client25 (빨 주 노)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-47)	 msg : "Client38 (남)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-41)	 msg : "Client48 (노)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client45 (빨)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:24
-	send to 127.0.0.1 (ForkJoinPool-1-worker-10)	 msg : "Client25 (빨 주 노)	Peer : 1 [Client45 (빨) ]"
-[INFO] Server 2017-08-26 18:52:24
-	exit 127.0.0.1
-[clients : 49명]
-[INFO] Server 2017-08-26 18:52:24
-	send to 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client25 (빨 주 노)	Peer : 1 [Client45 (빨) ]"
-[INFO] Server 2017-08-26 18:52:24
-	exit 127.0.0.1
-[clients : 48명]
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client0 (남)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-15)	 msg : "Client6 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client13 (빨 주 노 초 파 남 보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-46)	 msg : "Client28 (주)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client33 (파)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client24 (빨)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:25
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client36 (남)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client5 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client11 (초)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-29)	 msg : "Client5 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (노)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 47명]
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-39)	 msg : "Client31 (남)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-52)	 msg : "Client19 (남)	Peer : 1 [Client31 (남) ]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 46명]
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client22 (빨 주 노 초 파 남 보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-39)	 msg : "Client19 (남)	Peer : 1 [Client31 (남) ]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 45명]
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-24)	 msg : "Client22 (빨 주 노 초 파 남 보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 44명]
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client39 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client43 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-40)	 msg : "Client39 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 43명]
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-19)	 msg : "Client43 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 42명]
-[INFO] Server 2017-08-26 18:52:26
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-48)	 msg : "Client47 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	send to 127.0.0.1 (ForkJoinPool-1-worker-48)	 msg : "Client47 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:26
-	exit 127.0.0.1
-[clients : 41명]
-[INFO] Server 2017-08-26 18:52:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client16 (남)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-44)	 msg : "Client12 (남)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	send to 127.0.0.1 (ForkJoinPool-1-worker-44)	 msg : "Client12 (남)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	exit 127.0.0.1
-[clients : 40명]
-[INFO] Server 2017-08-26 18:52:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-3)	 msg : "Client26 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client42 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	send to 127.0.0.1 (ForkJoinPool-1-worker-3)	 msg : "Client26 (주)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:27
-	exit 127.0.0.1
-[clients : 39명]
-[INFO] Server 2017-08-26 18:52:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client2 (파)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client8 (보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:28
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-45)	 msg : "Client23 (노)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client18 (보)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client9 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-51)	 msg : "Client9 (초)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	exit 127.0.0.1
-[clients : 38명]
-[INFO] Server 2017-08-26 18:52:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-53)	 msg : "Client29 (빨)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-11)	 msg : "Client35 (주)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:29
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-5)	 msg : "Client44 (파)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client1 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-36)	 msg : "Client3 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-36)	 msg : "Client3 (보)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	exit 127.0.0.1
-[clients : 37명]
-[INFO] Server 2017-08-26 18:52:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-50)	 msg : "Client1 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	exit 127.0.0.1
-[clients : 36명]
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client7 (빨 주 노 초 파 남 보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client20 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-31)	 msg : "Client21 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	send to 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client20 (파)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	exit 127.0.0.1
-[clients : 35명]
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client37 (주)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client32 (빨)	Peer : 2 [no peer]"
-[INFO] Server 2017-08-26 18:52:30
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-55)	 msg : "Client46 (빨)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-22)	 msg : "Client4 (초)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client14 (보)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client40 (보)	Peer : 4 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-60)	 msg : "Client27 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-60)	 msg : "Client27 (노)	Peer : 0 [no peer]"
-[INFO] Server 2017-08-26 18:52:31
-	exit 127.0.0.1
-[clients : 34명]
-[INFO] Server 2017-08-26 18:52:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client10 (빨)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-8)	 msg : "Client24 (빨)	Peer : 1 [Client10 (빨) ]"
-[INFO] Server 2017-08-26 18:52:32
-	exit 127.0.0.1
-[clients : 33명]
-[INFO] Server 2017-08-26 18:52:32
-	send to 127.0.0.1 (ForkJoinPool-1-worker-17)	 msg : "Client24 (빨)	Peer : 1 [Client10 (빨) ]"
-[INFO] Server 2017-08-26 18:52:32
-	exit 127.0.0.1
-[clients : 32명]
-[INFO] Server 2017-08-26 18:52:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-32)	 msg : "Client30 (남)	Peer : 1 [no peer]"
-[INFO] Server 2017-08-26 18:52:32
-	receive from 127.0.0.1 (ForkJoinPool-1-worker-34)	 msg : "Client49 (초)	Peer : 3 [no peer]"
-[INFO] Server 2017-08-26 18:52:54
-	send to 127.0.0.1 (ForkJoinPool-1-worker-57)	 msg : "Client0 (남)	Peer : 2 [Client16 (남) Client17 (초 파 남) ]"
-[INFO] Server 2017-08-26 18:52:54
-	send to 127.0.0.1 (ForkJoinPool-1-worker-9)	 msg : "Client0 (남)	Peer : 2 [Client16 (남) Client17 (초 파 남) ]"
-[INFO] Server 2017-08-26 18:52:54
-	exit 127.0.0.1
-[clients : 30명]
-[INFO] Server 2017-08-26 18:52:54
-	exit 127.0.0.1
-[clients : 31명]
-[INFO] Server 2017-08-26 18:52:54
-	send to 127.0.0.1 (ForkJoinPool-1-worker-2)	 msg : "Client0 (남)	Peer : 2 [Client16 (남) Client17 (초 파 남) ]"
-[INFO] Server 2017-08-26 18:52:54
-	exit 127.0.0.1
-[clients : 29명]
-[INFO] Server 2017-08-26 18:52:55
-	send to 127.0.0.1 (ForkJoinPool-1-worker-1)	 msg : "Client8 (보)	Peer : 4 [Client40 (보) Client38 (파 남 보) Client13 (남 보) Client36 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:52:55
-	send to 127.0.0.1 (ForkJoinPool-1-worker-47)	 msg : "Client8 (보)	Peer : 4 [Client40 (보) Client38 (파 남 보) Client13 (남 보) Client36 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:52:55
-	exit 127.0.0.1
-[clients : 27명]
-[INFO] Server 2017-08-26 18:52:55
-	exit 127.0.0.1
-[clients : 28명]
-[INFO] Server 2017-08-26 18:52:55
-	send to 127.0.0.1 (ForkJoinPool-1-worker-33)	 msg : "Client8 (보)	Peer : 4 [Client40 (보) Client38 (파 남 보) Client13 (남 보) Client36 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:52:55
-	exit 127.0.0.1
-[clients : 26명]
-[INFO] Server 2017-08-26 18:52:55
-	send to 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client8 (보)	Peer : 4 [Client40 (보) Client38 (파 남 보) Client13 (남 보) Client36 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:52:55
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 25명]
-[INFO] Server 2017-08-26 18:52:55
-	send to 127.0.0.1 (ForkJoinPool-1-worker-61)	 msg : "Client8 (보)	Peer : 4 [Client40 (보) Client38 (파 남 보) Client13 (남 보) Client36 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:52:55
-	exit 127.0.0.1
-[clients : 24명]
-[INFO] Server 2017-08-26 18:52:57
-	send to 127.0.0.1 (ForkJoinPool-1-worker-11)	 msg : "Client35 (주)	Peer : 3 [Client34 (빨 주) Client48 (주 노 초) Client42 (빨 주) ]"
-[INFO] Server 2017-08-26 18:52:57
-	send to 127.0.0.1 (ForkJoinPool-1-worker-4)	 msg : "Client35 (주)	Peer : 3 [Client34 (빨 주) Client48 (주 노 초) Client42 (빨 주) ]"
-[INFO] Server 2017-08-26 18:52:57
-	exit 127.0.0.1
-[clients : 22명]
-[INFO] Server 2017-08-26 18:52:57
+[INFO] Server 2017-08-29 14:53:24
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-36)	 msg : "Client4 (노)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:24
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client8 (빨 주 노 초 파)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-55)	 msg : "Client15 (파)	Peer : 4 [Client46 (노 초 파 남 보) Client38 (빨 주 노 초 파 남 보) Client12 (노 초 파 남) Client8 (빨 주 노 초 파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 23명]
-[INFO] Server 2017-08-26 18:52:57
-	send to 127.0.0.1 (ForkJoinPool-1-worker-41)	 msg : "Client35 (주)	Peer : 3 [Client34 (빨 주) Client48 (주 노 초) Client42 (빨 주) ]"
-[INFO] Server 2017-08-26 18:52:57
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (파)	Peer : 4 [Client46 (노 초 파 남 보) Client38 (빨 주 노 초 파 남 보) Client12 (노 초 파 남) Client8 (빨 주 노 초 파) ]"
+[INFO] Server 2017-08-29 14:53:24
+	exit 127.0.0.1
+[clients : 22명]
+[INFO] Server 2017-08-29 14:53:24
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-52)	 msg : "Client19 (주)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-47)	 msg : "Client15 (파)	Peer : 4 [Client46 (노 초 파 남 보) Client38 (빨 주 노 초 파 남 보) Client12 (노 초 파 남) Client8 (빨 주 노 초 파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 21명]
-[INFO] Server 2017-08-26 18:52:57
-	send to 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client35 (주)	Peer : 3 [Client34 (빨 주) Client48 (주 노 초) Client42 (빨 주) ]"
-[INFO] Server 2017-08-26 18:52:57
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-37)	 msg : "Client15 (파)	Peer : 4 [Client46 (노 초 파 남 보) Client38 (빨 주 노 초 파 남 보) Client12 (노 초 파 남) Client8 (빨 주 노 초 파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 20명]
-[INFO] Server 2017-08-26 18:52:58
-	send to 127.0.0.1 (ForkJoinPool-1-worker-32)	 msg : "Client30 (남)	Peer : 1 [Client2 (초 파 남) ]"
-[INFO] Server 2017-08-26 18:52:58
+[INFO] Server 2017-08-29 14:53:24
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-38)	 msg : "Client21 (파)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:24
+	send to 127.0.0.1 (ForkJoinPool-1-worker-58)	 msg : "Client15 (파)	Peer : 4 [Client46 (노 초 파 남 보) Client38 (빨 주 노 초 파 남 보) Client12 (노 초 파 남) Client8 (빨 주 노 초 파) ]"
+[INFO] Server 2017-08-29 14:53:24
 	exit 127.0.0.1
 [clients : 19명]
-[INFO] Server 2017-08-26 18:52:58
-	send to 127.0.0.1 (ForkJoinPool-1-worker-43)	 msg : "Client30 (남)	Peer : 1 [Client2 (초 파 남) ]"
-[INFO] Server 2017-08-26 18:52:58
-	exit 127.0.0.1
-[clients : 18명]
-[INFO] Server 2017-08-26 18:53:25
-	send to 127.0.0.1 (ForkJoinPool-1-worker-25)	 msg : "Client11 (노 초 파)	Peer : 2 [Client37 (빨 주 노) Client33 (노 초 파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:25
-	send to 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client11 (노 초 파)	Peer : 2 [Client37 (빨 주 노) Client33 (노 초 파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:25
-	exit 127.0.0.1
-[clients : 16명]
-[INFO] Server 2017-08-26 18:53:25
-	send to 127.0.0.1 (ForkJoinPool-1-worker-30)	 msg : "Client11 (노 초 파)	Peer : 2 [Client37 (빨 주 노) Client33 (노 초 파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:25
-	exit 127.0.0.1
-[clients : 15명]
-[INFO] Server 2017-08-26 18:53:25
-	exit 127.0.0.1
-[clients : 17명]
-[INFO] Server 2017-08-26 18:53:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-16)	 msg : "Client15 (빨 주 노 초 파)	Peer : 1 [Client18 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:29
-	send to 127.0.0.1 (ForkJoinPool-1-worker-59)	 msg : "Client15 (빨 주 노 초 파)	Peer : 1 [Client18 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:29
-	exit 127.0.0.1
-[clients : 13명]
-[INFO] Server 2017-08-26 18:53:29
-	exit 127.0.0.1
-[clients : 14명]
-[INFO] Server 2017-08-26 18:53:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-26)	 msg : "Client49 (노 초 파)	Peer : 3 [Client41 (파 남 보) Client21 (파 남 보) Client14 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:31
-	exit 127.0.0.1
-[clients : 12명]
-[INFO] Server 2017-08-26 18:53:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-34)	 msg : "Client49 (노 초 파)	Peer : 3 [Client41 (파 남 보) Client21 (파 남 보) Client14 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:31
-	exit 127.0.0.1
-[clients : 11명]
-[INFO] Server 2017-08-26 18:53:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-31)	 msg : "Client49 (노 초 파)	Peer : 3 [Client41 (파 남 보) Client21 (파 남 보) Client14 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:31
-	exit 127.0.0.1
-[clients : 10명]
-[INFO] Server 2017-08-26 18:53:31
-	send to 127.0.0.1 (ForkJoinPool-1-worker-23)	 msg : "Client49 (노 초 파)	Peer : 3 [Client41 (파 남 보) Client21 (파 남 보) Client14 (파 남 보) ]"
-[INFO] Server 2017-08-26 18:53:31
-	exit 127.0.0.1
-[clients : 9명]
+[INFO] Server 2017-08-29 14:53:24
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-62)	 msg : "Client45 (빨)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-53)	 msg : "Client28 (빨 주)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-46)	 msg : "Client29 (빨 주 노 초 파)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-32)	 msg : "Client31 (보)	Peer : 3 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-18)	 msg : "Client33 (남)	Peer : 4 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-54)	 msg : "Client37 (파)	Peer : 2 [no peer]"
+[INFO] Server 2017-08-29 14:53:25
+	receive from 127.0.0.1 (ForkJoinPool-1-worker-12)	 msg : "Client43 (초)	Peer : 2 [no peer]"

@@ -1,0 +1,46 @@
+[INFO] ClientTest 2017-08-29 14:27:28
+	connect to server
+[INFO] ClientTest 2017-08-29 14:27:28
+	write Error
+[INFO] ClientTest 2017-08-29 14:29:47
+	connect to server
+[INFO] ClientTest 2017-08-29 14:29:47
+	send to 127.0.0.1 (main)	 msg : "Client (빨 주 노)	Peer : 0 [no peer]"
+[INFO] ClientTest 2017-08-29 14:31:43
+	read Error
+[INFO] ClientTest 2017-08-29 14:31:59
+	connect to server
+[INFO] ClientTest 2017-08-29 14:31:59
+	send to 127.0.0.1 (main)	 msg : "Client (빨)	Peer : 2 [no peer]"
+[INFO] ClientTest 2017-08-29 14:34:31
+	read Error
+[INFO] ClientTest 2017-08-29 14:34:40
+	connect to server
+[INFO] ClientTest 2017-08-29 14:34:40
+	send to 127.0.0.1 (main)	 msg : "Client (초)	Peer : 4 [no peer]"
+[INFO] ClientTest 2017-08-29 14:35:10
+	read Error
+[INFO] ClientTest 2017-08-29 14:35:17
+	connect to server
+[INFO] ClientTest 2017-08-29 14:35:17
+	send to 127.0.0.1 (main)	 msg : "Client (초 파 남)	Peer : 2 [no peer]"
+[INFO] ClientTest 2017-08-29 14:40:29
+	read Error
+[INFO] ClientTest 2017-08-29 14:40:49
+	connect to server
+[INFO] ClientTest 2017-08-29 14:40:49
+	send to 127.0.0.1 (main)	 msg : "Client (보)	Peer : 4 [no peer]"
+[INFO] ClientTest 2017-08-29 14:44:40
+	read Error
+[INFO] ClientTest 2017-08-29 14:44:49
+	connect to server
+[INFO] ClientTest 2017-08-29 14:44:49
+	send to 127.0.0.1 (main)	 msg : "Client (빨)	Peer : 1 [no peer]"
+[INFO] ClientTest 2017-08-29 14:50:30
+	read Error
+[INFO] ClientTest 2017-08-29 14:50:38
+	connect to server
+[INFO] ClientTest 2017-08-29 14:50:38
+	send to 127.0.0.1 (main)	 msg : "Client (주 노 초)	Peer : 1 [no peer]"
+[INFO] ClientTest 2017-08-29 14:50:41
+	receive from 127.0.0.1 (main)	 msg : "Client (빨 주 노 초 파 남)	Peer : 0 [no peer]"
