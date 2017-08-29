@@ -7,7 +7,7 @@
  * Node를 상속받아 만들어진 BlockingQueueNode는 Matcher를 구체화 시킨것이다.
  * 기본적인 설계 스키마는 MatchingQueue, Matcher를 따른다.
  * 따라서 simulator는 MatchingQueue와 Matcher의 구체클래스에 해당되는 
- * BlockingQueue를 예시로 시뮬레이션하며, 서버-클라이언트 관계로 동작한다.
+ * BlockingQueue를 예시로 시뮬레이션하며, 이러한 구조는 서버-클라이언트 관계로 동작한다.
  * 
  * UI는 UIMgr 내 main 메서드에서 시작되며, swt 컴포넌트들로 구성되어 있고 모든 UI처리는 UIMgr을 거친다.
  * 클라이언트 - 서버관계로 동작하며, 이 둘은 모델에 해당되는 BlockingQueueNode를 주고받는다.
