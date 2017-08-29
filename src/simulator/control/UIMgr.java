@@ -1,9 +1,7 @@
 package simulator.control;
 
-import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Shell;
 
-import simulator.control.util.LogMgr;
 import simulator.model.BlockingQueueNode;
 import simulator.view.MainFrame;
 
@@ -17,13 +15,6 @@ public enum UIMgr {
 	INSTANCE;
 	public static UIMgr getInstance() {
 		return INSTANCE;
-	}
-	
-	/** 로그 */
-	static Logger logger = LogMgr.getInstance("UIMgr");
-	@SuppressWarnings("unused")
-	private static void log(String text) {
-		System.out.println(text);
 	}
 	
 	private MainFrame mainFrame;
