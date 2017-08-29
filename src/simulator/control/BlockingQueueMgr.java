@@ -1,4 +1,4 @@
-package simulator.model;
+package simulator.control;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
-import simulator.control.UIMgr;
 import simulator.control.util.LogMgr;
+import simulator.model.BlockingQueueNode;
 
 /**
  * BlockingQueueMgr

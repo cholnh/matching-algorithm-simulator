@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import simulator.control.BlockingQueueMgr;
 import simulator.control.util.LogMgr;
-import simulator.model.BlockingQueueMgr;
 import simulator.model.BlockingQueueNode;
 import simulator.model.Node;
 

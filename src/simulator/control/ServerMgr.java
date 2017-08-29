@@ -18,7 +18,6 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.apache.log4j.Logger;
 
 import simulator.control.util.LogMgr;
-import simulator.model.BlockingQueueMgr;
 import simulator.model.BlockingQueueNode;
 import simulator.model.Node;
 
