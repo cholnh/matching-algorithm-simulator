@@ -103,12 +103,14 @@ public class ClientComp extends Composite {
 	class Validator implements IInputValidator {
 
 		public String isValid(String newText) {
+			Integer num;
 			try {
-				Integer.parseInt(newText);
+				num = Integer.parseInt(newText);
 			} catch (NumberFormatException e) {
 				return "Only Number";
 			}
-			
+			if(num < 0)
+				return "Only Positive Number";
 			return null;
 		}
 	}
