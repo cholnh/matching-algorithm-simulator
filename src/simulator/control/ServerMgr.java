@@ -68,6 +68,11 @@ public class ServerMgr {
 	/** UI */
 	private UIMgr ui = UIMgr.getInstance();
 	
+	private Integer waitingTime = 0;
+	public void setWaitingTime(Integer waitingTime) {
+		this.waitingTime = waitingTime;
+	}
+	
 	private ServerMgr() {/* Singleton */}
 
 	public static void main(String...args) {
@@ -149,7 +154,7 @@ public class ServerMgr {
 					blockingQueue.put(bnode);
 					
 					/* 결과 대기 */
-					if((sendNode = bnode.waitComplete(30, TimeUnit.SECONDS))  != null) {
+					if((sendNode = bnode.waitComplete(waitingTime, TimeUnit.SECONDS))  != null) {
 						
 						/* Send */
 						conToClient.nodeWrite(sendNode);
@@ -259,6 +264,7 @@ public class ServerMgr {
 	/** 서버에 접속된 클라이언트 수 */
 	private volatile Integer clientCount = 0;
 	private Lock lock = new ReentrantLock();
+	public Integer getClientCount() {return clientCount;}
 	/**
 	 * 클라이언트 연결 대기<br>
 	 * 접속을 시도하는 클라이언트와의 소켓연결을 하고  해당 소켓 <code>serverSoc</code>을 받아 반환

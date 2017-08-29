@@ -1,4 +1,7 @@
 package simulator.view.components;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -10,6 +13,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import simulator.control.ServerMgr;
 import simulator.control.UIMgr;
 import simulator.model.BlockingQueueNode;
 import simulator.view.MainFrame;
@@ -42,7 +46,7 @@ public class ServerComp extends Composite {
 		table = new Table(this, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
 		table.setTouchEnabled(true);
 		table.setHeaderVisible(true);
-		table.setBounds(10, 38, 1564, 451);
+		table.setBounds(10, 38, 1564, 415);
 		
 		TableColumn[] columns = new TableColumn[8];
 		for(int i=0; i<columns.length; i++) 
@@ -83,16 +87,38 @@ public class ServerComp extends Composite {
 		serverButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
-				UIMgr.getInstance().serverStart();
-				serverButton.setEnabled(false);
-				MainFrame.getInstance().getClientComp().getClientButton().setEnabled(true);
+				InputDialog input = new InputDialog(parent.getShell(), "", "INPUT Waiting Time (secs)", "10", new Validator());
+				if (input.open() == Window.OK) {
+					Integer wtime = 0;
+					wtime = Integer.parseInt(input.getValue());
+					
+					ServerMgr.getInstance().setWaitingTime(wtime);
+					
+					UIMgr.getInstance().serverStart();
+					serverButton.setEnabled(false);
+					MainFrame.getInstance().getClientComp().getClientButton().setEnabled(true);
+				}
 			}
 		});
 		serverButton.setText("start");
 		serverButton.setBounds(117, 7, 76, 25);
 	}
 
+	class Validator implements IInputValidator {
+
+		public String isValid(String newText) {
+			Integer num;
+			try {
+				num = Integer.parseInt(newText);
+			} catch (NumberFormatException e) {
+				return "Only Number";
+			}
+			if(num < 0)
+				return "Only Positive Number";
+			return null;
+		}
+	}
+	
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
