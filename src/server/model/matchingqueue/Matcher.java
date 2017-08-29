@@ -8,13 +8,13 @@ import java.util.Timer;
 /**
  * Matcher
  * This class is the default scheme to be applied to the matching queue.
- * When extends this, it must be overridden the match(), loosen() method.
+ * When extends this, it must be overridden the match(), loosen() abstract method.
  * The starvation problems can occur depending on the overridden method content.
  * 
  * @version 1.0 [2017. 8. 25.]
  * @author Choi
  */
-public class Matcher {
+public abstract class Matcher {
 	
 	/**
 	 * If matcher is registered as a peer for another, it registers for parent.
@@ -45,6 +45,26 @@ public class Matcher {
 		this.totalPeerCount = totalPeerCount;
 		peer = Collections.synchronizedList(new ArrayList<Matcher>());
 	}
+	
+	/**
+	 * Override this method to describe the match algorithm here.
+	 * A basic scheme is a type that takes the specified node to be matched
+	 * and returns a result of the matching algorithm.
+	 * 
+	 * @param node	node to be matched with this.
+	 * @return		returns a result satisfying the matching condition.
+	 */
+	public abstract boolean match(Matcher node);
+	
+	/**
+	 * Override this method to solve the starvation problem of matching algorithm here.
+	 * The matching algorithm can cause starvation problem, 
+	 * which is the phenomenon of node isolation for a long time if matching fails.
+	 * Therefore, it needs to solve the starvation problem through the loosen method.
+	 * 
+	 * @return	returns itself(this) with condition changed.
+	 */
+	public abstract Matcher loosen();
 	
 	/**
 	 * Timer getter
@@ -146,29 +166,5 @@ public class Matcher {
 	 */
 	public void setPeerClear() {
 		peer.clear();
-	}
-	
-	/**
-	 * Override this method to describe the match algorithm here.
-	 * A basic scheme is a type that takes the specified node to be matched
-	 * and returns a result of the matching algorithm.
-	 * 
-	 * @param node	node to be matched with this.
-	 * @return		returns a result satisfying the matching condition.
-	 */
-	public boolean match(Matcher node) {
-		return false;
-	}
-	
-	/**
-	 * Override this method to solve the starvation problem of matching algorithm here.
-	 * The matching algorithm can cause starvation problem, 
-	 * which is the phenomenon of node isolation for a long time if matching fails.
-	 * Therefore, it needs to solve the starvation problem through the loosen method.
-	 * 
-	 * @return	returns itself with condition changed.
-	 */
-	public Matcher loosen() {
-		return this;
 	}
 }
