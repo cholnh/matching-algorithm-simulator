@@ -19,7 +19,8 @@ public enum UIMgr {
 	
 	private MainFrame mainFrame;
 	private Shell mainShell;
-	
+	private volatile Integer clientTotal = 0;
+	private volatile Integer completedClientTotal = 0;
 	public MainFrame getMainFrame() {
 		return mainFrame;
 	}
@@ -102,8 +103,14 @@ public enum UIMgr {
 	public void removeServerTableNode(String name) {
 		mainFrame.getServerComp().removeServerTableNode(name);
 	}
-	public void setSl(Integer count) {
+	public synchronized void setSl(Integer count) {
 		if(mainFrame == null) return;
+		if(clientTotal < count) {
+			clientTotal = count;
+		} else if (clientTotal > count) {
+			completedClientTotal++;
+		}
+		mainFrame.setProgress( (int)((double)completedClientTotal/(double)clientTotal*100) );
 		mainFrame.getServerComp().setSl(count);
 	}
 	

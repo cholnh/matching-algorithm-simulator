@@ -38,7 +38,7 @@ public class MatchingQueueTest {
 	}
 	
 	public void customTest_2() {
-		MemoryMonitor.print();
+		System.out.println(MemoryMonitor.getInfo());
 		MatchingQueue<CustomMatcher> matchingQueue = new MatchingQueue<CustomMatcher>();
 		
 		//receiveThread(matchingQueue);
@@ -47,7 +47,7 @@ public class MatchingQueueTest {
 		CustomMatcher cusMatcher2 = new CustomMatcher("client2", 3, 2);
 		CustomMatcher cusMatcher3 = new CustomMatcher("client3", 3, 2);
 		CustomMatcher cusMatcher4 = new CustomMatcher("client4", 3, 2);
-		MemoryMonitor.print();
+		System.out.println(MemoryMonitor.getInfo());
 		matchingQueue.put(cusMatcher1);
 		//delay(5000);
 		matchingQueue.put(cusMatcher2);
