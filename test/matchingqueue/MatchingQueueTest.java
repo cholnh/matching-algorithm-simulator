@@ -1,7 +1,7 @@
 package matchingqueue;
 import java.util.Random;
 
-import simulator.CustomMatcher;
+import network_simulator.CustomMatcher;
 import simulator.control.util.MemoryMonitor;
 
 

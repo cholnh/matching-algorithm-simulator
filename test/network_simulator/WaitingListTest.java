@@ -1,4 +1,4 @@
-package simulator;
+package network_simulator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

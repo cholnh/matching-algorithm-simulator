@@ -1,0 +1,80 @@
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:05
+	connect to server
+[INFO] Client 2017-08-30 09:11:07
+	send to 127.0.0.1 (Thread-11)	 msg : "Client6 (빨 주)	Peer : 3 [no peer]"
+[INFO] Client 2017-08-30 09:11:07
+	send to 127.0.0.1 (Thread-17)	 msg : "Client8 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:07
+	receive from 127.0.0.1 (Thread-17)	 msg : "Client8 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:07
+	Client8 Team 완성 [ Client8 ]
+[INFO] Client 2017-08-30 09:11:08
+	send to 127.0.0.1 (Thread-4)	 msg : "Client0 (빨)	Peer : 1 [no peer]"
+[INFO] Client 2017-08-30 09:11:11
+	send to 127.0.0.1 (Thread-5)	 msg : "Client1 (노)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:11
+	receive from 127.0.0.1 (Thread-5)	 msg : "Client1 (노)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:11
+	Client1 Team 완성 [ Client1 ]
+[INFO] Client 2017-08-30 09:11:11
+	send to 127.0.0.1 (Thread-15)	 msg : "Client7 (주)	Peer : 3 [no peer]"
+[INFO] Client 2017-08-30 09:11:13
+	send to 127.0.0.1 (Thread-20)	 msg : "Client9 (보)	Peer : 3 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	send to 127.0.0.1 (Thread-7)	 msg : "Client3 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	send to 127.0.0.1 (Thread-9)	 msg : "Client5 (보)	Peer : 4 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	send to 127.0.0.1 (Thread-8)	 msg : "Client4 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	receive from 127.0.0.1 (Thread-7)	 msg : "Client3 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	Client3 Team 완성 [ Client3 ]
+[INFO] Client 2017-08-30 09:11:14
+	receive from 127.0.0.1 (Thread-8)	 msg : "Client4 (빨)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:14
+	Client4 Team 완성 [ Client4 ]
+[INFO] Client 2017-08-30 09:11:15
+	send to 127.0.0.1 (Thread-6)	 msg : "Client2 (빨 주 노 초 파 남 보)	Peer : 1 [no peer]"
+[INFO] Client 2017-08-30 09:11:15
+	receive from 127.0.0.1 (Thread-6)	 msg : "Client0 (빨)	Peer : 1 [Client2 (빨 주 노 초 파 남 보) ]"
+[INFO] Client 2017-08-30 09:11:15
+	Client0 Team 완성 [ Client0 - Client2 ]
+[INFO] Client 2017-08-30 09:11:15
+	receive from 127.0.0.1 (Thread-4)	 msg : "Client0 (빨)	Peer : 1 [Client2 (빨 주 노 초 파 남 보) ]"
+[INFO] Client 2017-08-30 09:11:15
+	Client0 Team 완성 [ Client0 - Client2 ]
+[INFO] Client 2017-08-30 09:11:57
+	receive from 127.0.0.1 (Thread-11)	 msg : "Client6 (빨 주 노 초)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:11:57
+	Client6 Team 완성 [ Client6 ]
+[INFO] Client 2017-08-30 09:12:03
+	receive from 127.0.0.1 (Thread-20)	 msg : "Client7 (빨 주 노 초 파)	Peer : 1 [Client9 (초 파 남 보) ]"
+[INFO] Client 2017-08-30 09:12:03
+	receive from 127.0.0.1 (Thread-15)	 msg : "Client7 (빨 주 노 초 파)	Peer : 1 [Client9 (초 파 남 보) ]"
+[INFO] Client 2017-08-30 09:12:03
+	Client7 Team 완성 [ Client7 - Client9 ]
+[INFO] Client 2017-08-30 09:12:03
+	Client7 Team 완성 [ Client7 - Client9 ]
+[INFO] Client 2017-08-30 09:12:24
+	receive from 127.0.0.1 (Thread-9)	 msg : "Client5 (초 파 남 보)	Peer : 0 [no peer]"
+[INFO] Client 2017-08-30 09:12:24
+	Client5 Team 완성 [ Client5 ]

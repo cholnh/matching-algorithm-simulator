@@ -1,4 +1,4 @@
-package simulator;
+package network_simulator;
 import java.util.ArrayList;
 
 import matchingqueue.Matcher;
@@ -111,7 +111,7 @@ public class CustomMatcher extends Matcher {
 		CustomMatcher cnode = (CustomMatcher) node;
 		
 		/* Matching Condition */
-		if(!isSameTCP(cnode)) return false;
+		if(!isSameTPC(cnode)) return false;
 		if(isContain(this.repOption, cnode.getOption()))
 			return true;
 		return false;		
@@ -134,7 +134,7 @@ public class CustomMatcher extends Matcher {
 		return this;
 	}
 	
-	private boolean isSameTCP(CustomMatcher node) {
+	private boolean isSameTPC(CustomMatcher node) {
 		/* Total Peer Count */
 		return ((int)totalPeerCount == (int)node.getTotalPeerCount());
 	}

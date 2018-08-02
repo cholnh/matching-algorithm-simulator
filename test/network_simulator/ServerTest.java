@@ -1,4 +1,4 @@
-package simulator;
+package network_simulator;
 
 
 import java.io.BufferedInputStream;
