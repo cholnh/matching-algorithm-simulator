@@ -6,7 +6,8 @@
 매칭 조건에 일치하는 노드들을 묶어 반환하는 큐입니다.  
 Client-Server 관계로 동작하며, 모델에 해당되는 Matching Queue Node를 주고 받습니다.  
 Matching Queue를 여러 상황에 맞게 사용할 수 있도록 라이브러리 형태로 제작했습니다.  
- 
+![cs_con](/img/cs.png)  
+
 ----  
 *설계*	
 
@@ -57,4 +58,6 @@ Matching Queue는 다음과 같은 특징이 있습니다.
 3. 명시적 락을 해제한다.
 4. 사전에 정의된 Aging을 수행한다.
 5. Aging된 노드를 Blocking Queue와 Waiting List에 재 등록한다.
- 
+  
+#### 실행 화면
+![program](/img/prog.png)  
