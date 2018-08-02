@@ -60,4 +60,8 @@ Matching Queue는 다음과 같은 특징이 있습니다.
 5. Aging된 노드를 Blocking Queue와 Waiting List에 재 등록한다.
   
 #### 실행 화면
+Matching Queue 동작을 가시화 하기 위한 시뮬레이터 입니다.  
+각 클라이언트는 랜덤으로 색을 부여 받으며, 서버는 클라이언트의 색을 구분하여 서로 동일한 색을 갖는 그룹을 매칭하여 반환합니다.  
+  
 ![program](/img/prog.png)  
+*(매칭에 성공된 피어는 시안색으로 표현)*
